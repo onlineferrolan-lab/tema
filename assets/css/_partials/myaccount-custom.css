@@ -802,6 +802,309 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
 }
 
 /* =============================================================
+   C2. FORMULARIOS — Información personal + Dirección
+       (body#identity, body#address, body#addresses)
+   ============================================================= */
+
+/* Contenedor general de contenido */
+.page-customer-account #content {
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+}
+
+/* Títulos de página internos */
+.page-customer-account h1 {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 16px !important;
+}
+
+/* --- Formularios globales Mi Cuenta --- */
+.page-customer-account .form-group {
+  margin-bottom: 16px !important;
+}
+
+.page-customer-account .form-control-label,
+.page-customer-account label:not(.custom-checkbox label) {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 6px !important;
+}
+
+.page-customer-account .form-control,
+.page-customer-account input[type="text"],
+.page-customer-account input[type="email"],
+.page-customer-account input[type="password"],
+.page-customer-account input[type="tel"],
+.page-customer-account input[type="number"],
+.page-customer-account select,
+.page-customer-account textarea {
+  width: 100% !important;
+  padding: 11px 14px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  background-color: #fff !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.page-customer-account .form-control:focus,
+.page-customer-account input:focus,
+.page-customer-account select:focus,
+.page-customer-account textarea:focus {
+  outline: none !important;
+  border-color: var(--fl-red) !important;
+  box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
+}
+
+/* Select con flecha custom */
+.page-customer-account select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%236c757d' d='M6 8L1 3h10z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 10px !important;
+  padding-right: 36px !important;
+}
+
+/* Checkboxes y radios */
+.page-customer-account input[type="checkbox"],
+.page-customer-account input[type="radio"] {
+  accent-color: var(--fl-red) !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+}
+
+/* Botones primarios — ENVIAR / GUARDAR */
+.page-customer-account .btn-primary,
+.page-customer-account .form-control-submit,
+.page-customer-account button[type="submit"],
+.page-customer-account input[type="submit"] {
+  display: inline-block !important;
+  padding: 12px 28px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  background-color: var(--fl-red) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease;
+}
+
+.page-customer-account .btn-primary:hover,
+.page-customer-account .form-control-submit:hover,
+.page-customer-account button[type="submit"]:hover {
+  background-color: #a50628 !important;
+  color: #fff !important;
+}
+
+/* Footer de formulario */
+.page-customer-account .form-footer {
+  margin-top: 20px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--fl-border) !important;
+}
+
+/* Campo de política de password */
+.page-customer-account .field-password-policy {
+  margin-bottom: 16px !important;
+}
+
+/* =============================================================
+   C3. DIRECCIONES (body#addresses)
+   ============================================================= */
+
+/* Cards de dirección */
+.page-addresses .address {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  margin-bottom: 16px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.page-addresses .address .address-body {
+  padding: 20px !important;
+}
+
+.page-addresses .address .address-body h4 {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 8px !important;
+}
+
+.page-addresses .address .address-body address {
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.6 !important;
+  min-height: auto !important;
+}
+
+.page-addresses .address .address-footer {
+  padding: 12px 20px !important;
+  border-top: 1px solid var(--fl-border) !important;
+  display: flex !important;
+  gap: 16px !important;
+}
+
+.page-addresses .address .address-footer a {
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.page-addresses .address .address-footer a:hover {
+  color: var(--fl-red) !important;
+}
+
+.page-addresses .address .address-footer a i {
+  font-size: 14px !important;
+  vertical-align: middle;
+  margin-right: 4px !important;
+}
+
+/* Link "Añadir dirección" */
+.page-addresses .addresses-footer a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+}
+
+.page-addresses .addresses-footer a:hover {
+  text-decoration: underline !important;
+}
+
+/* =============================================================
+   C4. TABLAS — Cupones, Facturas por abono
+       (body#discount, body#order-slip)
+   ============================================================= */
+
+/* Tabla desktop */
+.page-customer-account table.table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: none !important;
+  background: #fff !important;
+  border-radius: var(--fl-radius) !important;
+  overflow: hidden;
+}
+
+.page-customer-account table.table thead th {
+  background: var(--fl-bg-soft) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  text-align: left !important;
+}
+
+.page-customer-account table.table tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  vertical-align: middle !important;
+  background: transparent !important;
+}
+
+.page-customer-account table.table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.page-customer-account table.table tbody tr:hover td {
+  background: var(--fl-bg-soft) !important;
+}
+
+/* Quitar bordes de table-striped y table-bordered */
+.page-customer-account table.table-striped tbody tr:nth-of-type(odd) {
+  background: transparent !important;
+}
+
+.page-customer-account table.table-bordered {
+  border: 1px solid var(--fl-border) !important;
+}
+
+/* Mobile list cards (cupones, facturas) */
+.page-customer-account .cart-rule,
+.page-customer-account .credit-slip {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.page-customer-account .cart-rule ul,
+.page-customer-account .credit-slip ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.page-customer-account .cart-rule li,
+.page-customer-account .credit-slip li {
+  padding: 4px 0 !important;
+  font-size: 13px !important;
+  color: var(--fl-text) !important;
+}
+
+/* Empty state (alertas) */
+.page-customer-account .alert-info {
+  background: var(--fl-bg-soft) !important;
+  border: 1px dashed var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  color: var(--fl-text-muted) !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  padding: 18px !important;
+}
+
+/* Links de descarga / acción en tablas */
+.page-customer-account table.table a {
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.page-customer-account table.table a:hover {
+  text-decoration: underline !important;
+}
+
+/* Label / badge de estado */
+.page-customer-account .label,
+.page-customer-account .badge {
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* =============================================================
    D. RESPONSIVE
    ============================================================= */
 @media (max-width: 991px) {
