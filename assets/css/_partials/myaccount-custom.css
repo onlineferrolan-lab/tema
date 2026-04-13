@@ -8,3 +8,418 @@
    Se carga con priority 401 (después del 400 original).
    NO editar myaccount.css — todo override va aquí.
    ============================================================= */
+
+/* =============================================================
+   VARIABLES
+   ============================================================= */
+:root {
+  --ferrolan-red: #C40731;
+  --ferrolan-red-light: rgba(196, 7, 49, 0.06);
+  --ferrolan-border: #ECECEC;
+  --ferrolan-text: #2D2D2D;
+  --ferrolan-text-muted: #6C757D;
+  --ferrolan-bg-subtle: #F8F8F8;
+  --ferrolan-radius: 8px;
+  --ferrolan-card-padding: 24px;
+}
+
+/* =============================================================
+   1. SIDEBAR — NAVEGACIÓN DESKTOP
+   ============================================================= */
+
+/* Contenedor general */
+.navigation_account {
+  background-color: #fff;
+  border: 1px solid var(--ferrolan-border);
+  border-radius: var(--ferrolan-radius);
+  padding: 0;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+/* Títulos de grupo del sidebar */
+.navigation_account .title {
+  display: block;
+  padding: 12px 16px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ferrolan-text-muted);
+}
+
+/* Items del menú */
+.navigation_account .item {
+  display: block;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ferrolan-text);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Ocultar iconos del sidebar */
+.navigation_account .item i,
+.navigation_account .item .material-icons {
+  display: none;
+}
+
+/* Hover */
+.navigation_account .item:hover {
+  background-color: var(--ferrolan-bg-subtle);
+  text-decoration: none;
+  color: var(--ferrolan-text);
+}
+
+/* Item activo */
+.navigation_account a.item.active,
+.navigation_account a.item[href]:active {
+  border-left-color: var(--ferrolan-red);
+  background-color: var(--ferrolan-red-light);
+  font-weight: 600;
+  color: var(--ferrolan-red);
+}
+
+/* =============================================================
+   2. SIDEBAR — NAVEGACIÓN MÓVIL
+   ============================================================= */
+
+.navigation_mobile {
+  border: 1px solid var(--ferrolan-border);
+  border-radius: var(--ferrolan-radius);
+  background-color: #fff;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.navigation_mobile .btn-link {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ferrolan-text);
+  text-decoration: none;
+}
+
+.navigation_mobile .btn-link:focus,
+.navigation_mobile .btn-link:hover {
+  text-decoration: none;
+  color: var(--ferrolan-text);
+}
+
+.navigation_mobile .card-body {
+  border-top: 1px solid var(--ferrolan-border);
+  padding: 4px 0;
+}
+
+.navigation_mobile .card-body > * {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--ferrolan-text);
+}
+
+/* Ocultar iconos en móvil también */
+.navigation_mobile .card-body .item i,
+.navigation_mobile .card-body .item .material-icons {
+  display: none;
+}
+
+.navigation_mobile .card-body .item.active {
+  border-left: 3px solid var(--ferrolan-red);
+  background-color: var(--ferrolan-red-light);
+  font-weight: 600;
+  color: var(--ferrolan-red);
+}
+
+.navigation_mobile .card-body .item:hover {
+  background-color: var(--ferrolan-bg-subtle);
+}
+
+/* =============================================================
+   3. DASHBOARD — TÍTULO Y DESCRIPCIÓN
+   ============================================================= */
+
+/* Contenedor general de contenido */
+.page-customer-account #content {
+  font-size: 14px;
+  color: var(--ferrolan-text);
+}
+
+/* Título "Hola [nombre]:" */
+#my-account h1.my-account-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ferrolan-text);
+  margin-bottom: 8px;
+}
+
+/* Descripción debajo del título */
+#my-account .my-account-description {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ferrolan-border);
+  align-items: center;
+}
+
+#my-account .my-account-description .desc {
+  font-size: 14px;
+  color: var(--ferrolan-text-muted);
+}
+
+/* Botón logout */
+a.close_session.myaccount {
+  display: inline-block;
+  padding: 8px 20px;
+  width: auto;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ferrolan-text-muted);
+  border: 1px solid var(--ferrolan-border);
+  border-radius: var(--ferrolan-radius);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+a.close_session.myaccount:hover {
+  border-color: var(--ferrolan-red);
+  color: var(--ferrolan-red);
+}
+
+/* =============================================================
+   4. DASHBOARD — SUBTÍTULOS DE SECCIÓN
+   ============================================================= */
+
+#my-account .subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--ferrolan-text-muted);
+  margin: 24px 0 12px;
+  padding: 0;
+  display: block;
+}
+
+/* Primer subtitle no necesita tanto margen arriba */
+#my-account .row > .subtitle:first-child {
+  margin-top: 0;
+}
+
+/* =============================================================
+   5. DASHBOARD — TARJETAS DE ENLACE
+   ============================================================= */
+
+#my-account .link-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid var(--ferrolan-border);
+  border-radius: var(--ferrolan-radius);
+  padding: var(--ferrolan-card-padding);
+  margin-bottom: 12px;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+  font-size: 14px;
+}
+
+#my-account .link-item:hover {
+  border-color: #D0D0D0;
+}
+
+/* Iconos dentro de las tarjetas */
+#my-account .link-item > i {
+  width: 40px;
+  font-size: 28px;
+  margin-right: 16px;
+  color: var(--ferrolan-text-muted);
+  flex-shrink: 0;
+}
+
+#my-account .link-item > i:before {
+  font-size: 28px;
+}
+
+/* Contenido de la tarjeta */
+#my-account .link-item > .history-content {
+  width: auto;
+  flex: 1;
+}
+
+#my-account .link-item > .history-content .title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ferrolan-text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+#my-account .link-item > .history-content .desc {
+  font-size: 13px;
+  color: var(--ferrolan-text-muted);
+  margin: 0;
+  line-height: 1.4;
+  height: auto;
+}
+
+/* Links en el grid — quitar estilos heredados */
+#my-account .row > a {
+  text-decoration: none;
+  color: inherit;
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
+
+#my-account .row > a:hover {
+  text-decoration: none;
+}
+
+/* =============================================================
+   6. DASHBOARD — BLOQUE MÓDULOS (displayCustomerAccountContent)
+   ============================================================= */
+
+.displayCustomerAccountContent {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 0;
+}
+
+.displayCustomerAccountContent > * {
+  width: 50%;
+}
+
+.displayCustomerAccountContent > li > a > span,
+.displayCustomerAccountContent > a > span {
+  height: auto;
+  min-height: 75px;
+}
+
+#my-account .displayCustomerAccountContent .link-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ferrolan-text);
+  line-height: 1.4;
+  border: 1px solid var(--ferrolan-border);
+  border-radius: var(--ferrolan-radius);
+  padding: var(--ferrolan-card-padding);
+  box-shadow: none;
+}
+
+#my-account .displayCustomerAccountContent .link-item .material-icons {
+  font-size: 0;
+  height: 32px;
+  width: 32px;
+  margin-right: 16px;
+}
+
+/* =============================================================
+   7. DASHBOARD — BLOQUE CONTACTO
+   ============================================================= */
+
+#my-account #link_contact .link-item {
+  border: 1px solid var(--ferrolan-border);
+  border-radius: var(--ferrolan-radius);
+  padding: var(--ferrolan-card-padding);
+  box-shadow: none;
+  flex-wrap: wrap;
+}
+
+#my-account #link_contact .link-item > .history-content .desc {
+  height: auto;
+}
+
+.btn_contact {
+  display: inline-block;
+  padding: 10px 28px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background-color: var(--ferrolan-red);
+  border: none;
+  border-radius: var(--ferrolan-radius);
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.btn_contact:hover {
+  background-color: #a50628;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* =============================================================
+   8. FOOTER DE PÁGINA (link "Salir")
+   ============================================================= */
+
+.page-footer .account-link {
+  margin-right: 1rem;
+}
+
+.page-footer .account-link span {
+  font-size: 14px;
+}
+
+/* =============================================================
+   9. RESPONSIVE
+   ============================================================= */
+
+@media (max-width: 991px) {
+  .sidebarmyaccount {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #my-account h1.my-account-title {
+    font-size: 18px;
+  }
+
+  #my-account .my-account-description {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #my-account .my-account-description .text-end {
+    text-align: left !important;
+  }
+
+  a.close_session.myaccount {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Tarjetas a full width en móvil */
+  .displayCustomerAccountContent > * {
+    width: 100%;
+  }
+
+  #my-account .link-item > .history-content .desc {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .btn_contact {
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  /* Cards más compactas en móvil */
+  #my-account .link-item {
+    padding: 16px;
+  }
+}
