@@ -1,0 +1,378 @@
+parent: ecommbase
+name: ferrolan
+display_name: ferrolan
+version: 1.1.0
+author:
+  name: "Ecomm Sistema"
+  email: "dev@ecommsistema.com"
+  url: "https://www.ecomm360.es/"
+
+meta:
+  compatibility:
+    from: 1.7.0.0
+    to: ~
+
+  available_layouts:
+    layout-full-width:
+      name: Full Width
+      description: No side columns, ideal for distraction-free pages such as product pages.
+    layout-both-columns:
+      name: Three Columns
+      description: One large central column and 2 side columns.
+    layout-left-column:
+      name: Two Columns, small left column
+      description: Two columns with a small left column
+    layout-right-column:
+      name: Two Columns, small right column
+      description: Two columns with a small right column
+
+assets:
+  # If you're using this theme as child and you want to load
+  # the parent theme assets, uncomment this line.
+  #  use_parent_assets: true
+
+  # The following lines are showing how to load assets in your page
+  # Uncomment and change value to start loading css or js files
+  css:
+    all:
+      - id: fontcolors
+        path: assets/css/_partials/font-colors-base.css
+        media: all
+        priority: 51
+      - id: header
+        path: assets/css/_partials/type1/header.css
+        media: all
+        priority: 200
+      - id: productlist
+        path: assets/css/_partials/type1/product-list.css
+        media: all
+        priority: 201
+      - id: footer
+        path: assets/css/_partials/type1/footer.css
+        media: all
+        priority: 202
+    category:
+      - id: category
+        path: assets/css/_partials/type1/category.css
+        media: all
+        priority: 300
+    manufacturer:
+      - id: manufacturer
+        path: assets/css/_partials/type1/category.css
+        media: all
+        priority: 300
+    supplier:
+      - id: category
+        path: assets/css/_partials/type1/supplier.css
+        media: all
+        priority: 300
+    search:
+      - id: search
+        path: assets/css/_partials/type1/category.css
+        media: all
+        priority: 300
+    prices-drop:
+      - id: prices-drop
+        path: assets/css/_partials/type1/category.css
+        priority: 300
+        media: all
+    new-products:
+      - id: new-products
+        path: assets/css/_partials/type1/category.css
+        priority: 300
+        media: all
+    product:
+      - id: product
+        path: assets/css/_partials/type1/product.css
+        media: all
+        priority: 400
+    order:
+      - id: checkout
+        path: assets/css/_partials/checkout.css
+        media: all
+        priority: 400
+    cart:
+      - id: cart
+        path: assets/css/_partials/cart.css
+        media: all
+        priority: 400
+    cms:
+      - id: cms
+        path: assets/css/_partials/cms.css
+        media: all
+        priority: 450
+    index:
+      - id: home
+        path: assets/css/_partials/type1/home.css
+        media: all
+        priority: 450
+    my-account:
+      - id: my-account
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    authentication:
+      - id: authentication
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    password:
+      - id: password
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    identity:
+      - id: identity
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    address:
+      - id: address
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    addresses:
+      - id: addresses
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    history:
+      - id: history
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    order-slip:
+      - id: order-slip
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    order-detail:
+      - id: order-detail
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    discount:
+      - id: discount
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    module-ps_emailalerts-account:
+      - id: module-ps_emailalerts-account
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    module-psgdpr-gdpr:
+      - id: module-psgdpr-gdpr
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    module-prestasmartwishlist-simplelisting:
+      - id: module-prestasmartwishlist-simplelisting
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    module-ecommproductshistory-myaccount:
+      - id: module-ecommproductshistory-myaccount
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    savedcarts:
+      - id: savedcarts
+        path: assets/css/_partials/myaccount.css
+        media: all
+        priority: 400
+    pagenotfound:
+      - id: pagenotfound
+        path: assets/css/_partials/pagenotfound.css
+        media: all
+        priority: 400
+    order-confirmation:
+      - id: order-confirmation
+        path: assets/css/_partials/orderconfirmation.css
+        media: all
+        priority: 400
+    contact:
+      - id: contact
+        path: assets/css/_partials/contact.css
+        media: all
+        priority: 450
+    stores:
+      - id: stores
+        path: assets/css/_partials/stores.css
+        media: all
+        priority: 450
+
+  js:
+    product:
+      - id: productjs
+        path: assets/js/product.js
+    category:
+      - id: categoryjs
+        path: assets/js/category.js
+    new-products:
+      - id: new-productsjs
+        path: assets/js/category.js
+    prices-drop:
+      - id: prices-dropjs
+        path: assets/js/category.js
+    search:
+      - id: searchjs
+        path: assets/js/category.js
+
+
+global_settings:
+  configuration:
+    PS_IMAGE_QUALITY: png
+  modules:
+    to_enable:
+      - ps_linklist
+      - ecommbanners
+      - ecommbaseconfiguration
+      - ecommowlslider
+      - ecommslider
+      - ecommzoom
+      - ets_advancedcaptcha
+      - ecomminfinitescroll
+      - ecommselectqtyproduct
+      - prestasmartwishlist
+      - ecommsearchbar
+      - ecommwpo
+      - ecommcategories
+      - ecommStoreLocator
+      - ecommhomeproducts
+      - ecommprettyinputs
+      - iqitmegamenu
+    to_disabled:
+      - ps_mainmenu
+      - ps_facetedsearch
+      - ps_searchbar
+      - ps_imageslider
+      - ps_featuredproducts
+      - ps_banner
+      - ps_dataprivacy
+      - gamification
+      - statsstock
+      - statscarrier
+      - statscheckup
+      - statspersonalinfos
+      - statsbestsuppliers
+      - pagesnotfound
+  hooks:
+    modules_to_hook:
+      displayAfterBodyOpeningTag:
+      displayNavFullWidth:
+      displayNav1:
+      displayNav2:
+      displaySearch:
+        - ecommsearchbar
+      displayTop:
+        - ps_customersignin
+        - ps_shoppingcart
+      displayHome:
+        - ecommslider
+        - ecommbanners
+        - ps_customtext
+      displayFooterBefore:
+        - blockreassurance
+        - ps_emailsubscription
+      displayFooter:
+        - ps_linklist
+        - ps_contactinfo
+        - ps_socialfollow
+      displayFooterAfter:
+        - blockreassurance
+      displayLeftColumn:
+        - ps_categorytree
+        - ps_facetedsearch
+      displayProductAdditionalInfo:
+        - ps_sharebuttons
+      displayReassurance:
+        - blockreassurance
+      displayOrderConfirmation2:
+        - ps_featuredproducts
+      displayCrossSellingShoppingCart:
+        - ps_featuredproducts
+      displayBackOfficeHeader:
+        - ecommbanners
+      displayHeader:
+        - ecommbanners
+        - ecommbaseconfiguration
+        - ecommowlslider
+        - ecommprettyinputs
+        - ecommslider
+        - ecommzoom
+        - ets_advancedcaptcha
+        - ecomminfinitescroll
+        - prestasmartwishlist
+        - ecommsearchbar
+        - ecommwpo
+        - ecommcategories
+        - ecommStoreLocator
+        - ecommhomeproducts
+        - iqitmegamenu
+      ecommbanners:
+        - ecommbanners
+      displayBanner:
+        - ecommbanners
+      displaytop:
+        - ps_languageselector
+        - prestasmartwishlist
+        - ps_customersignin
+        - ps_shoppingcart
+
+
+  image_types:
+    cart_default:
+      width: 125
+      height: 125
+      scope: [products]
+    small_default:
+      width: 98
+      height: 98
+      scope: [products, categories, manufacturers, suppliers]
+    medium_default:
+      width: 452
+      height: 452
+      scope: [products, manufacturers, suppliers]
+    home_default:
+      width: 250
+      height: 250
+      scope: [products]
+    large_default:
+      width: 800
+      height: 800
+      scope: [products, manufacturers, suppliers]
+    category_default:
+      width: 141
+      height: 180
+      scope: [categories]
+    stores_default:
+      width: 170
+      height: 115 
+      scope: [stores]
+
+theme_settings:
+  default_layout: layout-full-width
+  layouts:
+    category: layout-left-column
+    best-sales: layout-left-column
+    new-products: layout-left-column
+    prices-drop: layout-left-column
+    contact: layout-left-column
+dependencies:
+  modules:
+    - ecommbanners
+    - ecommbaseconfiguration
+    - ecommowlslider
+    - ecommslider
+    - ecommzoom
+    - ets_advancedcaptcha
+    - ecomminfinitescroll
+    - ecommselectqtyproduct
+    - prestasmartwishlist
+    - ecommsearchbar
+    - ecommwpo
+    - ecommcategories
+    - ecommStoreLocator
+    - ecommhomeproducts
+    - iqitmegamenu

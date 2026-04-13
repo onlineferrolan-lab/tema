@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="/var/www/clients/client0/web5/web/back0360" source-language="es-ES" target-language="es-ES" datatype="plaintext">
+    <body>
+      <trans-unit id="eb92025cb8c66f1850c13a9b602a1856">
+        <source>Show all</source>
+        <target>Show all</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="62a5e490880a92eef74f167d9dc6dca0">
+        <source>Hide</source>
+        <target>Hide</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fbacd0ad1a9a07b4b760f5c43ab393bf">
+        <source>No choice available on this group</source>
+        <target>No choice available on this group</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2eb31cabbf5b6e6d751e8d81ef66a71a">
+        <source>Select above criteria</source>
+        <target>Select above criteria</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

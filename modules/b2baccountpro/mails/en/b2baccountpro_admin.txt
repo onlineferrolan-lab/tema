@@ -1,0 +1,14 @@
+[/{shop_url}] 
+
+Hola Administrador, 
+
+Se ha registrado un nuevo usuario como profesional.
+
+Usuario: {firstname} {lastname}
+Dirección de correo electrónico: {email}
+Razón social: {razon_social}
+CIF: {cif}
+
+{shop_name} [/{shop_url}] creado por PrestaShop(tm)
+[http://www.prestashop.com/] 
+

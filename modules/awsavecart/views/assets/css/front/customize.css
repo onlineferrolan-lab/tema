@@ -1,0 +1,10 @@
+.awsavecart_button_pdf {
+    float: none;
+}
+.awsavecart_button_cart {
+    padding: 0px;
+}
+.awsavecart_button_cart .material-icons,
+.awsavecart_button_pdf .material-icons {
+    color:#fff;
+}

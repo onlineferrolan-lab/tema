@@ -1,0 +1,40 @@
+/**/
+
+#pagenotfound section#wrapper {
+    height: calc(100vh - 175px);
+    background-size: cover;
+    margin-bottom: 30px;
+    height: calc(100vh - 150px);
+}
+
+#pagenotfound section#wrapper #main {
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    text-align: center;
+    color: #000;
+}
+
+#pagenotfound section#wrapper #main h1 {
+	visibility: hidden; /* Oculta el texto pero conserva el espacio */
+}
+
+#pagenotfound section#wrapper #main h4 {
+    visibility: hidden; /* Oculta el texto pero conserva el espacio */
+}
+
+#pagenotfound section#wrapper #main p {
+    visibility: hidden; /* Oculta el texto pero conserva el espacio */
+}
+
+#pagenotfound section#wrapper #content-wrapper {
+    overflow: hidden;
+    position: relative;
+    /* margin-bottom: 30px; */
+}
+
+#pagenotfound section#wrapper > div, #pagenotfound section#wrapper > div > div, #pagenotfound section#wrapper > div > div > div {
+    height: 100%;
+    overflow: hidden;
+}

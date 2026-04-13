@@ -1,0 +1,5 @@
+Hi{firstname} {lastname},
+
+A new order has been generated in your name.
+{awpaymentshopDetails}
+

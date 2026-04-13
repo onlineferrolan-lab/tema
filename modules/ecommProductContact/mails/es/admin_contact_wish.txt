@@ -1,0 +1,18 @@
+[{shop_url}] 
+
+Hola, 
+
+ID de producto: {id_product}
+Nombre: {name} 
+Apellidos: {apellidos} 
+Dirección: {direccion} 
+Código Postal: {codigo_postal} 
+Ciudad: {ciudad} 
+País: {pais} 
+Email: {email} 
+Teléfono: {telefono} 
+Mensaje: {mensaje}
+
+{shop_name} [{shop_url}] powered by
+PrestaShop(tm) [http://www.prestashop.com/]
+

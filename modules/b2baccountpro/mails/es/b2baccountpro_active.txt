@@ -1,0 +1,20 @@
+[/{shop_url}] 
+
+
+
+Hola {firstname} {lastname}, 
+
+
+
+Tu cuenta ha sido validada como profesional.
+
+Ya tienes acceso a tu tarifa especial.
+
+Accede a nuestra web desde este enlace: {shop_url}
+
+{shop_name} [/{shop_url}] creado por PrestaShop(tm)
+
+[http://www.prestashop.com/]
+
+
+

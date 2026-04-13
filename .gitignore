@@ -1,0 +1,25 @@
+# === PrestaShop Theme - .gitignore ===
+
+# Cache generada por PrestaShop / ecommwpo
+cache/
+assets/cache/
+
+# Archivos del sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editores
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Node (si se usa build tooling)
+node_modules/
+
+# Backup / temporales
+*.bak
+*.orig
+*.tmp

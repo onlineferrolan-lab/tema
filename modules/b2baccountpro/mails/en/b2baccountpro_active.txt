@@ -1,0 +1,13 @@
+[/{shop_url}] 
+
+Hola {firstname} {lastname}, 
+
+Su cuenta ha sido validada como profesional
+
+Su cuenta ya dispone de acceso a todas las ofertas unicas y especiales que solo los profesionales pueden tener.
+
+Acceda ya a nuestra web desde este enlace: {shop_url}
+
+{shop_name} [/{shop_url}] creado por PrestaShop(tm)
+[http://www.prestashop.com/] 
+

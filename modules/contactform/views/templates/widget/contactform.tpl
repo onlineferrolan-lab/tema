@@ -1,0 +1,151 @@
+{**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ *}
+ 
+ 
+ 
+<section class="contact-form">
+  <form action="{$urls.pages.contact}" method="post" {if $contact.allow_file_upload}enctype="multipart/form-data"{/if}>
+    {if $notifications}
+      <div class="col-xs-12 alert {if $notifications.nw_error}alert-danger{else}alert-success{/if}">
+        <ul>
+          {foreach $notifications.messages as $notif}
+            <li>{$notif}</li>
+          {/foreach}
+        </ul>
+      </div>
+    {/if}
+
+    {if !$notifications || $notifications.nw_error}
+      <section class="form-fields">
+
+        <div class="form-group row">
+            <h3>{l s='Contact us' d='Shop.Theme.Global'}</h3>
+        </div>
+
+        <div class="form-group row">
+           <div class="sub-form-group">
+            <div class="js-input-column inp">
+                <select name="id_contact" id="id_contact" class="form-control form-control-select">
+                   <option value="">{l s='Seleccione asunto' d='Shop.Forms.Help'}</option>
+                  {foreach from=$contact.contacts item=contact_elt}
+                    <option value="{$contact_elt.id_contact}">{$contact_elt.name}</option>
+                  {/foreach}
+                </select>
+            </div>
+            </div>
+          </div>
+      
+
+        <div class="form-group row">
+          <div class="sub-form-group">
+            <div class="js-input-column inp">
+                <input
+                  id="email"
+                  class="form-control"
+                  name="from"
+                  type="email"
+                  value="{$contact.email}"
+                  placeholder=" "
+                >
+                 <span class="label">{l s='Email address' d='Shop.Forms.Labels'}<div class="required">*</div></span>
+            </div>
+          </div>
+        </div>
+
+        
+
+        {if $contact.orders}
+          <div class="form-group row">
+           <div class="sub-form-group">
+            <div class="js-input-column inp">
+              <select id="id-order" name="id_order" class="form-control form-control-select">
+                <option value="">{l s='Seleccione referencia pedido' d='Shop.Forms.Help'}</option>
+                {foreach from=$contact.orders item=order}
+                  <option value="{$order.id_order}">{$order.reference}</option>
+                {/foreach}
+              </select>
+            </div>
+           </div>
+           
+          </div>
+        {/if}
+
+        {if $contact.allow_file_upload}
+          <div class="form-group row">
+            <div class="sub-form-group attachment_box">
+            <div class="js-input-column inp">
+                 <input id="file-upload" type="file" name="fileUpload" class="filestyle" data-buttonText="{l s='Choose file' d='Shop.Theme.Actions'}" placeholder=" ">
+                 <span class="label">{l s='Attachment' d='Shop.Forms.Labels'}</span>
+            </div>
+            </div>  
+            {*<label class="col-md-3 form-control-label" for="file-upload">{l s='Attachment' d='Shop.Forms.Labels'}</label>
+            <div class="col-md-6">
+              <input id="file-upload" type="file" name="fileUpload" class="filestyle" data-buttonText="{l s='Choose file' d='Shop.Theme.Actions'}">
+            </div>
+            <span class="col-md-3 form-control-comment">
+              {l s='optional' d='Shop.Forms.Help'}
+            </span>*}
+          </div>
+        {/if}
+        <div class="form-group row">
+          <div class="sub-form-group">
+            <div class="js-input-column inp">
+                
+                <textarea
+                  id="contactform-message"
+                  class="form-control"
+                  name="message"
+                  placeholder=" "
+                  rows="3"
+                >{if $contact.message}{$contact.message}{/if}</textarea>
+                <span class="label">{l s='Message' d='Shop.Forms.Labels'}</span>
+            </div>
+          </div>
+        </div>
+
+        {if isset($id_module)}
+          <div class="form-group row">
+            {hook h='displayGDPRConsent' id_module=$id_module}
+          </div>
+        {/if}
+
+      {hook h='displayPaCaptcha' posTo='contact'}</section>
+
+      <footer class="form-footer">
+        
+          <style>
+            input[name=url] {
+              display: none !important;
+            }
+          </style>
+          <input type="text" name="url" value=""/>
+          <input type="hidden" name="token" value="{$token}" />
+          <input class="btn btn-primary" type="submit" name="submitMessage" value="{l s='Send' d='Shop.Theme.Actions'}">
+     
+      </footer>
+    {/if}
+
+  </form>
+</section>

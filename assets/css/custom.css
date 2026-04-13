@@ -1,0 +1,427 @@
+.cbp-spmenu-vertical a {
+  border-bottom: none !important;
+}
+/* ==========================================================================
+   FERROLAN — Lavado de cara "Mi Cuenta"  (v2 — especificidad reforzada)
+   --------------------------------------------------------------------------
+   Cambio respecto a v1: todos los selectores prefijados con body#my-account
+   en lugar de solo #my-account, para ganar a las reglas del tema que usan
+   selectores tipo body:not(#index) main section#wrapper ...
+   --------------------------------------------------------------------------
+   Cómo aplicar:
+   1) Backup de custom.css actual.
+   2) BORRAR del custom.css todo el bloque v1 anterior (desde el comentario
+      "FERROLAN — Lavado de cara Mi Cuenta" hasta el final del archivo).
+   3) Pegar este bloque entero al final.
+   4) Parámetros avanzados > Rendimiento > CCC: apagar Smart cache CSS,
+      Guardar, encender, Guardar.
+   5) Hard refresh (Ctrl+F5).
+   ========================================================================== */
+
+body#my-account {
+  --fl-red:          #C40731;
+  --fl-red-soft:     rgba(196, 7, 49, 0.08);
+  --fl-text:         #2D2D2D;
+  --fl-text-muted:   #6C757D;
+  --fl-border:       #ECECEC;
+  --fl-border-hard:  #D9D9D9;
+  --fl-bg:           #FFFFFF;
+  --fl-bg-soft:      #FAFAFA;
+  --fl-radius:       8px;
+}
+
+/* --------------------------------------------------------------------------
+   Layout general y cabecera
+   -------------------------------------------------------------------------- */
+body#my-account .container_dashboard,
+body#my-account .page-content,
+body#my-account .dashboard_account {
+  background: var(--fl-bg) !important;
+}
+
+body#my-account .header_dashboard h1,
+body#my-account .header_dashboard .page-title,
+body#my-account h1.page-heading,
+body#my-account .title_block {
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+  color: var(--fl-text);
+}
+
+body#my-account .header_dashboard .h6,
+body#my-account .header_dashboard h2 {
+  font-weight: 400;
+  color: var(--fl-text-muted);
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   Menú lateral — minimalista, sin iconos
+   -------------------------------------------------------------------------- */
+body#my-account #left-column.dashboardaccount {
+  background: var(--fl-bg) !important;
+  border-right: 1px solid var(--fl-border);
+  box-shadow: none !important;
+}
+
+/* Ocultar TODOS los iconos del menú lateral */
+body#my-account .navigation_account .item i,
+body#my-account .navigation_account .item svg,
+body#my-account .navigation_account .item img,
+body#my-account .navigation_account .item [class^="icon-"],
+body#my-account .navigation_account .item [class*=" icon-"] {
+  display: none !important;
+}
+
+body#my-account .navigation_account .item {
+  display: flex !important;
+  align-items: center;
+  padding: 12px 20px !important;
+  margin: 1px 0 !important;
+  color: var(--fl-text) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 2px solid transparent !important;
+  border-radius: 0 !important;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+body#my-account .navigation_account .item:hover {
+  background: var(--fl-bg-soft) !important;
+  color: var(--fl-red) !important;
+  border-left-color: var(--fl-border-hard) !important;
+}
+
+body#my-account .navigation_account .item.active,
+body#my-account .navigation_account .item.current,
+body#my-account .navigation_account .item[aria-current="page"] {
+  background: var(--fl-red-soft) !important;
+  color: var(--fl-red) !important;
+  font-weight: 500 !important;
+  border-left-color: var(--fl-red) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Bloque "Necesitas ayuda? — CONTACTO"
+   -------------------------------------------------------------------------- */
+body#my-account .contact_help {
+  margin-top: 28px !important;
+  padding: 20px !important;
+  background: var(--fl-bg-soft) !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+body#my-account .contact_help i,
+body#my-account .contact_help svg,
+body#my-account .contact_help img {
+  display: none !important;
+}
+
+body#my-account .contact_help > span,
+body#my-account .contact_help p {
+  display: block;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 12px !important;
+}
+
+body#my-account .contact_help a,
+body#my-account .contact_help .btn {
+  display: block !important;
+  padding: 11px 16px !important;
+  background: var(--fl-red) !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em;
+  text-align: center !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  transition: opacity 0.15s ease;
+}
+
+body#my-account .contact_help a:hover,
+body#my-account .contact_help .btn:hover {
+  opacity: 0.88;
+  color: #fff !important;
+}
+
+/* --------------------------------------------------------------------------
+   Tarjetas de contenido (Promos, Últimos pedidos, Mis favoritos, etc.)
+   -------------------------------------------------------------------------- */
+body#my-account .standard_card {
+  background: var(--fl-bg) !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  box-shadow: none !important;
+  padding: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+body#my-account .title_block_dashboard {
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  text-transform: none !important;
+}
+
+body#my-account .default_message_no {
+  display: block !important;
+  margin: 0 !important;
+  padding: 18px !important;
+  background: var(--fl-bg-soft) !important;
+  border: 1px dashed var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  color: var(--fl-text-muted) !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  text-align: center !important;
+}
+
+/* --------------------------------------------------------------------------
+   Tabla de pedidos — limpia, sin bordes verticales
+   -------------------------------------------------------------------------- */
+body#my-account .last_orders table,
+body#my-account #history table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body#my-account .last_orders thead th,
+body#my-account #history thead th {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  text-align: left !important;
+}
+
+body#my-account .last_orders tbody td,
+body#my-account #history tbody td {
+  border: 0 !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 18px 16px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: var(--fl-text) !important;
+  vertical-align: top !important;
+  background: transparent !important;
+}
+
+body#my-account .last_orders tbody tr:last-child td,
+body#my-account #history tbody tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+body#my-account .last_orders tbody tr:hover td,
+body#my-account #history tbody tr:hover td {
+  background: var(--fl-bg-soft) !important;
+}
+
+/* Enlace "Ver todos los pedidos" */
+body#my-account .last_orders a[href*="historial"],
+body#my-account .last_orders .see_all,
+body#my-account .header_dashboard a[href*="historial"] {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+}
+body#my-account .last_orders a[href*="historial"]:hover,
+body#my-account .header_dashboard a[href*="historial"]:hover {
+  text-decoration: underline !important;
+}
+
+/* --------------------------------------------------------------------------
+   Formularios — Información personal + Contacto
+   -------------------------------------------------------------------------- */
+body#my-account .form-group,
+body#my-account .form-control-valign {
+  margin-bottom: 18px !important;
+}
+
+body#my-account label,
+body#my-account .form-control-label {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 6px !important;
+}
+
+body#my-account .form-control,
+body#my-account input[type="text"],
+body#my-account input[type="email"],
+body#my-account input[type="password"],
+body#my-account input[type="tel"],
+body#my-account input[type="number"],
+body#my-account select,
+body#my-account textarea {
+  width: 100% !important;
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: var(--fl-text) !important;
+  background: var(--fl-bg) !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+body#my-account .form-control:focus,
+body#my-account input:focus,
+body#my-account select:focus,
+body#my-account textarea:focus {
+  outline: none !important;
+  border-color: var(--fl-red) !important;
+  box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
+}
+
+body#my-account textarea,
+body#my-account .form-control[rows] {
+  min-height: 140px !important;
+  resize: vertical !important;
+}
+
+/* Select con flecha custom */
+body#my-account select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%236c757d' d='M6 8L1 3h10z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 10px 10px !important;
+  padding-right: 36px !important;
+}
+
+/* Botón "Seleccionar archivo" del formulario de contacto */
+body#my-account .custom-file-label,
+body#my-account .btn-file,
+body#my-account label[for*="file"] {
+  display: inline-block !important;
+  padding: 9px 14px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  background: var(--fl-bg) !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+}
+
+/* Checkboxes (términos y condiciones, etc.) */
+body#my-account input[type="checkbox"],
+body#my-account input[type="radio"] {
+  accent-color: var(--fl-red) !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+}
+
+/* Botones primarios (ENVIAR, GUARDAR, etc.) */
+body#my-account .btn-primary,
+body#my-account button[type="submit"],
+body#my-account input[type="submit"] {
+  display: inline-block !important;
+  padding: 12px 28px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  background: var(--fl-red) !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: opacity 0.15s ease, transform 0.05s ease;
+}
+body#my-account .btn-primary:hover,
+body#my-account button[type="submit"]:hover,
+body#my-account input[type="submit"]:hover {
+  opacity: 0.9 !important;
+  color: #fff !important;
+}
+body#my-account .btn-primary:active,
+body#my-account button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* Título del bloque "Contacta con nosotros" */
+body#my-account .page-content h1,
+body#my-account .page-content .h1,
+body#my-account .contact-form h1 {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 24px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Móvil — burger lateral, tarjetas más compactas
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  body#my-account .standard_card {
+    padding: 18px !important;
+    margin-bottom: 16px !important;
+    border-radius: 6px !important;
+  }
+
+  body#my-account .header_dashboard h1 {
+    font-size: 26px !important;
+  }
+
+  body#my-account .title_block_dashboard {
+    font-size: 15px !important;
+    margin-bottom: 14px !important;
+    padding-bottom: 10px !important;
+  }
+
+  body#my-account .navigation_account .item {
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+  }
+
+  body#my-account .form-control,
+  body#my-account input,
+  body#my-account select,
+  body#my-account textarea {
+    font-size: 16px !important;
+  }
+
+  body#my-account .last_orders tbody tr {
+    display: block !important;
+    border: 1px solid var(--fl-border) !important;
+    border-radius: 6px !important;
+    padding: 14px !important;
+    margin-bottom: 12px !important;
+  }
+  body#my-account .last_orders tbody td {
+    display: block !important;
+    border: 0 !important;
+    padding: 4px 0 !important;
+  }
+  body#my-account .last_orders tbody tr:hover td {
+    background: transparent !important;
+  }
+}

@@ -1,0 +1,30 @@
+[{shop_url}]
+
+Hola {firstname} {lastname},
+
+Gracias por crear una cuenta de cliente en {shop_name}.
+
+Aquí están sus datos de inicio de sesión:
+
+DIRECCIÓN DE CORREO ELECTRÓNICO: {email}
+
+Debe cambiar su contraseña a una forma que sea más fácil de recordar. Haga clic en el botón de abajo para cambiar la contraseña de la cuenta:
+
+[{change_password}]
+
+Consejos de seguridad importantes:
+
+* Mantenga siempre seguros los datos de su cuenta.
+
+* Nunca revele sus datos de inicio de sesión a nadie.
+
+* Cambie su contraseña regularmente.
+
+* Si sospecha que alguien está usando su cuenta ilegalmente, notifíquenos de inmediato.
+
+Ahora puede realizar pedidos en nuestra tienda: {shop_name}
+[{shop_url}]
+
+{shop_name} [{shop_url}] powered by
+PrestaShop(tm) [http://www.prestashop.com/]
+

@@ -1,0 +1,173 @@
+/**
+* 2007-2021 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author    PrestaShop SA <contact@prestashop.com>
+*  @copyright 2007-2021 PrestaShop SA
+*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*
+* Don't forget to prefix your containers with your own identifier
+* to avoid any conflicts with others containers.
+*/
+.products .ecommaddtocart_productlist {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.ecommaddtocart_productlist a.add-to-cart-productlist-more.btn.btn-primary {
+    width: 100%;
+    border-radius: 10px;
+    font-size: 13px;
+    height: 35px;
+    line-height: 35px;
+    background: var(--color3);
+}
+
+.ecommaddtocart_productlist a.add-to-cart-productlist-more.btn.btn-primary:hover {
+     border: 1px solid var(--color3);
+}
+.ecommaddtocart_productlist .add-to-cart-productlist {
+    background: var(--color3,#000000);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    font-size: 13px;
+    height: 35px;
+    line-height: 35px;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+}
+.ecommaddtocart_productlist .add-to-cart-productlist.hide {
+    display: none;
+}
+.ecommaddtocart_productlist .product-quantity:not(.show) {
+    display: none;
+}
+.ecommaddtocart_productlist .product-quantity.show {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+#product .product-add-to-cart .product-quantity .qty, #product .product-add-to-cart .control-label {
+    display: none;
+}
+#product .ecommaddtocart_productlist {
+    min-width: 130px;
+}
+
+#product .product-add-to-cart .ecommaddtocart_productlist {
+    width: 300px;
+}
+.ecommaddtocart_productlist .product-quantity.show {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+    margin: 0 auto;
+    width: 220px;
+    gap: 5px;
+    max-width: 100%;
+    width: 100%;
+}
+.ecommaddtocart_productlist  .p-quantity {
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
+.product-add-to-cart .ecommaddtocart_productlist .p-quantity {
+    height: 45px;
+    line-height: 45px;
+}
+
+.product-add-to-cart .ecommaddtocart_productlist .minus-prod, .product-add-to-cart .ecommaddtocart_productlist .plus-prod {
+    height: 45px;
+    line-height: 45px;
+}
+.ecommaddtocart_productlist .product-quantity div {
+    width: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+#product .product-actions .product-add-to-cart .product-quantity .add {
+    display: none;
+}
+.product-add-to-cart .ecommaddtocart_productlist .product-quantity.show {
+    width: 100%;
+    max-width: 319px;
+    height: 52px;
+    line-height: 52px;
+}
+.product-add-to-cart .ecommaddtocart_productlist .add-to-cart-productlist {
+    width: 100%;
+    max-width: 300px;
+    height: 45px;
+    line-height: 45px;
+}
+/* Chrome, Safari, Edge, Opera */
+.p-quantity::-webkit-outer-spin-button,
+.p-quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.p-quantity[type=number] {
+  -moz-appearance: textfield;
+}
+input.p-quantity {
+    margin-bottom: 0px;
+    border-radius: 10px;
+    border: 1px solid var(--color3, #000000);
+    background: white;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+}
+.product-quantity div.minus-prod,
+.product-quantity div.plus-prod,
+.product-quantity div.mpd-minus-prod,
+.product-quantity div.mpd-plus-prod {
+        text-align: center;
+        cursor: pointer;
+        background: var(--color3);
+        width: 100%;
+        max-width: 40px;
+        line-height: 35px;
+        border-radius: 10px;
+        color: white;
+}
+@media(max-width: 500px){
+    #product .product-add-to-cart .ecommaddtocart_productlist {
+        width: 100%;
+        max-width: 100%;
+    }
+    #product .product-add-to-cart .ecommaddtocart_productlist > *{
+        width: 100%;
+        max-width: 100%;
+    }
+}

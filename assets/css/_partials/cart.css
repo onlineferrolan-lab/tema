@@ -1,0 +1,214 @@
+/* Contenido del carrito */
+body#cart div#content-wrapper {
+    margin-bottom: 50px;
+}
+.cart {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.cart-item .product-line-grid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.cart-item img {
+    max-width: 100%;
+}
+
+.cart-item .item-details {
+    flex-grow: 1;
+}
+
+.cart-item .item-details h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.cart-item .item-details p {
+    margin: 5px 0;
+}
+.cart-item  span.product-price, .cart-item .cart-line-product-actions {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+.cart-item .product-line-info .current-price {
+    font-size: 14px;
+}
+.cart-summary {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.cart-summary h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.cart-summary p {
+    margin: 5px 0;
+}
+.product-line-grid-body {
+    padding: 0px 15px 0px 0px;
+}
+.product-discount span.regular-price {
+    text-decoration: line-through;
+    font-size: 14px;
+}
+.product-line-info.product-price.h5.has-discount {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+}
+span.discount.discount-percentage {
+    display: none;
+}
+
+input.js-cart-line-product-quantity.form-control {
+    text-align: center;
+    background: none;
+}
+button.btn.btn-touchspin.js-touchspin.js-increase-product-quantity.bootstrap-touchspin-up {
+    position: absolute;
+    background: none;
+    top: 7px;
+    right: 15px;
+    padding: 0px;
+}
+.price {
+    text-align: center;
+}
+button.btn.btn-touchspin.js-touchspin.js-decrease-product-quantity.bootstrap-touchspin-down {
+    position: absolute;
+    background: none;
+    top: 7px;
+    left: 15px;
+    padding: 0px;
+}
+
+.alert ul {
+    margin-bottom: 0px;
+}
+a.btn.btn-primary {
+    width: 100%;
+    margin-top: 20px;
+}
+div#promo-code input.promo-input {
+    height: 40px;
+    border-radius: 0px;
+    border: 1px solid #c3c3c3;
+    padding: 0px 15px;
+}
+div#promo-code button.btn.btn-primary {
+    width: 100%;
+    max-width: calc(100% - 315px);
+    height: 40px;
+    line-height: 40px;
+    padding: 0px;
+}
+.promo-code form {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+    margin: 15px 0px;
+}
+.cart-summary-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.cart-summary-line span.label {
+    width: 100%;
+    max-width: 50%;
+}
+
+.cart-summary-line span.value {
+    text-align: right;
+    width: 100%;
+    max-width: 50%;
+}
+input.js-cart-line-product-quantity.form-control[type="number"]::-webkit-inner-spin-button,
+input.js-cart-line-product-quantity.form-control[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.alert.alert-danger.js-error {
+    display: none;
+}
+@media(max-width:991px) {
+
+    body#cart #content-wrapper {
+        width: 100%;
+        padding-top: 20px;
+    }
+    .product-line-grid-right .price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .product-line-grid-body br {
+        display: none;
+    }
+    a.modal_perso {
+        display: block;
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    .product-line-grid-body {
+        padding: 0px;
+    }
+    .cart-grid-body > a.label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 18px;
+    }
+    .cart-item .product-line-grid {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .cart-item .product-line-grid .product-line-grid-left {
+        width: 60px;
+    }
+    .cart-item .product-line-grid .product-line-grid-body {
+        width: calc(100% - 60px);
+        padding-left: 15px;
+    }
+    .product-line-grid-right .row {
+        display: flex;
+        float: none;
+        justify-content: space-between;
+        width: 100%;
+        padding-top: 10px;
+        align-items: center;
+    }
+    .cart-item span.product-price, .cart-item .cart-line-product-actions {
+        position: initial;
+        transform: initial;
+    }
+    div#promo-code button.btn.btn-primary {
+        max-width: 100%;
+    }
+}
+
+body#cart p.delivery-product-date.recogida-date {
+    display: none;
+}
+
+body#cart p.delivery-product-date.domicilio-date {
+    display: none;
+}

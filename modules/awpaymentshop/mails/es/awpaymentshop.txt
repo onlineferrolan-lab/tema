@@ -1,0 +1,5 @@
+Hola {firstname} {lastname},
+
+Se ha generado un nuevo pedido a su nombre.
+{awpaymentshopDetails}
+

@@ -1,0 +1,169 @@
+/**/
+
+
+
+#index .elementor-column-wrap.elementor-element-populated.ls-overflow-visible {
+    padding-top: 0px;
+}
+
+
+
+#index .customsliderecomm  .elementor-carousel-wrapper .ceicon-chevron-left:before {
+    color: white
+}
+
+.customsliderecomm  figcaption.elementor-image-carousel-caption {
+    position: absolute;
+    max-width: 256px;
+    width: 250px;
+    margin-left: -126px;
+    left: 50%;
+    background: #0000008a;
+    top: 0px;
+    bottom: 0px;
+    /* border-bottom-right-radius: 10px; */
+    /* border-top-right-radius: 10px; */
+}
+.elementor-button-text {
+    text-transform: uppercase !important;
+}
+.customsliderecomm  figcaption.elementor-image-carousel-caption .inside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    color: white;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    font-size: 10px;
+}
+
+.customsliderecomm  figcaption.elementor-image-carousel-caption .inside > span:nth-child(2) {
+    font-size: 25px;
+    line-height: 51px;
+}
+
+.customsliderecomm  figcaption.elementor-image-carousel-caption .inside > span:nth-child(3) {
+    background: var(--color3);
+    width: max-content;
+    margin: 0 auto;
+    padding: 0px 20px;
+    line-height: 27px;
+    border-radius: 6px;
+}
+.customsliderecomm  .swiper-slide{
+    padding-right: 15px;
+    /* border-radius: 10px; */
+}
+.customsliderecomm  .swiper-slide .swiper-slide-inner{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.customsliderecomm .elementor-carousel-wrapper.swiper-container {
+    position: static;
+    margin-right: -15px;
+    width: initial;
+    max-width: initial;
+}
+
+.b1 h1 {
+    font-size: 18px!important;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.b3 .elementor-col-33{
+    flex: 1
+}
+.page-home .cee-home-header-banner-text {
+    position: absolute;
+    top: calc(50% - 22px);
+    left: 50%;
+    -webkit-transform: translate(-50%, -50px);
+    transform: translate(-50%, -50px);
+    z-index: 2;
+}
+
+.b4 .elementor-top-column, .b5 .elementor-top-column, .b9 .elementor-top-column {
+    padding: 0px 7px;
+}
+
+.b4, .b5, .b49 {
+    padding: 0px 7px;
+}
+.b4 .elementor-widget-container, .b5 .elementor-widget-container, .b9 .elementor-widget-container{
+    background-color: #0000008a !important;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+    max-width: 445px;
+    margin: 0 auto;
+    border-radius: 14px;
+}
+.b4 .elementor-column-wrap, .b5 .elementor-column-wrap, .b9 .elementor-column-wrap{
+    border-radius: 10px;
+    padding: 0px!important;
+}
+.b7 .swiper-image-stretch .swiper-slide .swiper-slide-image{
+    border-radius: 10px!important;
+    /* object-fit: initial; */
+    overflow: hidden;
+}
+
+.b7 .swiper-image-stretch .swiper-slide .swiper-slide-inner {
+    border-radius: 10px!important;
+    overflow: hidden;
+}
+.b7 .elementor-column-wrap.elementor-element-populated{
+    background: none!important;
+}
+.b8 img{
+    width: 100%;
+    height: auto
+}
+
+body#index .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    bottom: 30px;
+}
+
+body#index .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets > span {
+    width: 10px;
+    height: 10px;
+}
+
+body#index .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets > span:not(.swiper-pagination-bullet.swiper-pagination-bullet-active) {
+    background: black;
+    opacity: 1;
+}
+
+body#index .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets > span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    top: 2px;
+}
+
+#index .elementor-button {
+    border-radius: 6px;
+}
+.b3 .swiper-slide, .b6 .swiper-slide {
+    padding-right: 10px;
+}
+/*media*/
+@media(max-width: 767px){
+    section#wrapper {
+        overflow: hidden!important;
+    }
+    .b4, .b9{
+       margin-bottom: 0px!important;
+       margin-top: 0px!important;
+    }
+    .b4 .elementor-top-column, .b5 .elementor-top-column, .b9 .elementor-top-column{
+     padding-bottom: 15px; 
+    }
+    .b8 {
+        margin-bottom: 15px!important;
+    }
+}
+

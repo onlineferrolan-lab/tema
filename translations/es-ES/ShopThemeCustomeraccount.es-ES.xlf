@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="/var/www/clients/client0/web5/web/back0360" source-language="es-ES" target-language="es-ES" datatype="plaintext">
+    <body>
+      <trans-unit id="045b8fe756752091b610a07cb1653355">
+        <source>Account summary</source>
+        <target>Resumen de la cuenta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="284b47b0bb63ae2df3b29f0e691d6fcf">
+        <source>Addresses</source>
+        <target>Direcciones</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a82868319826fb092b73968e661b5b38">
+        <source>Vouchers</source>
+        <target>Descuentos</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7442e29d7d53e549b78d93c46b8cdcfc">
+        <source>Orders</source>
+        <target>Pedidos</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3908e1afa0ff22fbf112aff3c5ba55c1">
+        <source>Your addresses</source>
+        <target>Tus direcciones</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3cb6ea48a427bf3a1687302e3b764c27">
+        <source>View credit slip</source>
+        <target>Ver abonos</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cf3bae95c5f6023d5a10fe415b205a45">
+        <source>Credit slip</source>
+        <target>Abones</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d95cf4ab2cbf1dfb63f066b50558b07d">
+        <source>My account</source>
+        <target>Mi cuenta</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="74ecd9234b2a42ca13e775193f391833">
+        <source>My orders</source>
+        <target>Mis pedidos</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c1ea83c2856f4a2d3fe73d321a50743d">
+        <source>Discount coupons</source>
+        <target>Cupones de descuento</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6335a00a08fde0fbb8f6d6630cdadd92">
+        <source>Your personal information</source>
+        <target>Tu información personal</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2433db5a329ea473271a3cd8c013362e">
+        <source>Personal information</source>
+        <target>Información personal</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="01aa312e8a4fe57af295b8405462fa00">
+        <source>My Addresses</source>
+        <target>Mis direcciones</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3f65d6e17a11466983fd177702cf6a71">
+        <source>Contact Form</source>
+        <target>Formulario de contacto</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bbaff12800505b22a853e8b7f4eb6a22">
+        <source>Contact</source>
+        <target>Contacto</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="52ef9633d88a7480b3a938ff9eaa2a25">
+        <source>Others</source>
+        <target>Otros</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ea99ea42b98faa4de7b2d679a9ff1915">
+        <source>For any questions, contact our customer service team</source>
+        <target>Para cualquier duda, contacta con nuestro equipo de atención al cliente</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7817a41c2c7a74a6d98fd6d0029a47ac">
+        <source>Edit, create or delete your shipping and billing addresses.</source>
+        <target>Edita, crea o elimina tus direcciones de envío y facturación.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3e3fe603a5294489a9c1804cde00f68b">
+        <source>Edit your personal data such as name, password, email ...</source>
+        <target>Edita tus datos personales como nombre, contraseña, correo...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fef1f6770f018b3c270aa261b687976b">
+        <source>In the "My account" section you can edit your personal data, addresses and review your latest orders.</source>
+        <target>En el apartado "Mi cuenta" puedes editar tus datos personales, direcciones y revisar tus últimos pedidos.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="81262b4327872f91ebebe7d6ac5894a1">
+        <source>Discover the discounted vouchers we have for you.</source>
+        <target>Descubre los descuentos que puedes encontrar.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="079ab838731026a514c62f5e26e35a89">
+        <source>Hi %customerName%</source>
+        <target>Hola %customerName%</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="782c8b38bce4f2f6975ca7f33ac8189b">
+        <source>Order history</source>
+        <target>Historial de pedido</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="48974cc3df177e6b565c39aa155458cd">
+        <source>Shipping Address</source>
+        <target>Dirección de envío</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="26b595a297397c5214f6ea2023bad3fb">
+        <source>Track, return products, repeat orders or request invoices.</source>
+        <target>Realizar seguimiento, devolución de productos, repetir pedidos o solicitar facturas.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="72cfc3d14068c6b9a2450a17dcb1bfe7">
+        <source>Sign off</source>
+        <target>Salir</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

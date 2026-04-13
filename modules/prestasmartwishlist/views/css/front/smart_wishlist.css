@@ -1,0 +1,349 @@
+/**
+ * 2008-2021 Prestaworld
+ *
+ * All right is reserved,
+ *
+ * @author    Prestaworld <prestaworld12@gmail.com>
+ * @copyright 2008-2021 Prestaworld
+ * @license   One Paid Licence By WebSite Using This Module. No Rent. No Sell. No Share.
+ */
+.productListBtn {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+    .listbody_main {width: 200px; float: left;}
+}
+
+.main_div{
+    background-color: #FFF;
+    padding: 0;
+    margin-bottom: 50px;
+}
+.mainTab {
+    padding: 0;
+}
+#presta-left-sidebar {
+    border-right: 1px solid #ddd;
+    padding-left: 0;
+    /* min-height: 400px; */
+    height: 100%;
+}
+#presta-left-sidebar ul li {
+    padding: 10px 0 10px 20px;
+}
+#presta-left-sidebar .btn.active.focus,
+#presta-left-sidebar  .btn.active:focus,
+#presta-left-sidebar  .btn.focus,
+#presta-left-sidebar  .btn:active.focus,
+#presta-left-sidebar  .btn:active:focus,
+#presta-left-sidebar  .btn:focus {
+    outline: none;
+}
+#presta-left-sidebar ul li.active {
+    background-color: #2592a9;
+}
+.presta-wishlist {
+    margin-bottom: 50px;
+}
+.presta-wishlist-banner {
+    position: relative;
+}
+.presta-wishlist-banner .bannerimg {
+    width: 100%;
+    height: auto;
+}
+.presta-wishlist-banner a.presta-new-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #fff5ea;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.presta-wishlist-banner a.presta-new-list:hover {
+    background-color: #2fb5d2;
+    color: #FFF;
+}
+/* .presta-list li:hover{
+    background-color: #c0c3c5;
+} */
+#presta-left-sidebar li:hover{
+    background-color: #c0c3c5;
+}
+#tabLinkMain{
+    color:#c45500;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 21px;
+    border: none;
+}
+.sub_menu{
+    margin-top: 20px;
+}
+.btnSubMenu{
+    background-color: transparent;
+    border: none;
+    color:#000;
+    padding: 0;
+    text-align: inherit;
+    cursor:pointer;
+}
+#presta-left-sidebar ul li.active button.btnSubMenu {
+    color:#FFF;
+    font-weight: bolder;
+}
+.invitebtn{
+    background-color: transparent;
+    border: 1px solid #c0c3c5;
+    padding: 8px 15px 4px 10px;
+    text-align: inherit;
+    cursor:pointer;
+    color:#006fd5;
+    border-radius: 50px;
+}
+.content_head{
+    height: 100%;
+    margin-top: 15px;
+}
+.C_head{
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 15px;
+}
+#searchBar{
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    /* background-image: url('searchicon.png'); */
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+.contentItems{
+    margin-top: 20px;
+}
+.createlistbtn{
+    float: right;
+    padding: 20px;
+}
+.nameproduct{
+    color:#0066c0;
+}
+/*.wishlist_btn{
+    margin-top: 20px;
+}*/
+.imgx{
+    margin-left: 12px;
+}
+.addbtn{
+    text-decoration: none;
+}
+#presta_main{
+    margin-top:30px;
+}
+.listbody{
+    padding-left: 0px;
+    color:#0066c0;
+    height:100%;
+}
+.listbody_main{
+    height:100%;
+    border-bottom: solid rgba(0,0,0,.1) 1px;
+    padding: 5px 0 5px 0;
+    margin: 5px 0 5px 0;
+
+}
+.contentItems hr{
+    margin-top:150px;
+}
+.dicountWishlist{
+    background-color: #f39d72;
+    color:white;
+}
+.subMenulist{
+    padding:50px;
+    line-height:2.8;
+}
+.moveAndDelete{
+    padding:10px;
+}
+.buttonMove{
+    background-color: f1f1f1;
+    border: solid;
+    color: grey;
+    border-radius:7px;
+    border-style: groove;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.dropdown-menu{
+    margin-top: 10px;
+    width: 100%;
+}
+.dropitem{
+    padding:10px;
+}
+#messageDiv{
+    text-align: center;
+   margin: 0px
+}
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.06);
+    z-index: 9;
+}
+.addToCartbtn{
+    font-size: 12px;
+    padding: 5px 30px 5px 30px;
+}
+.deletebtn{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.btnShowmore{
+    margin:20px 20px 20px 320px;
+}
+
+.productListBtnDiv{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.modalpopup
+{
+    color:white;
+    background-color: #4d4d4d;
+    background-clip: padding-box;
+    border: none;
+    border-radius: .3rem;
+    outline: 0;
+    text-align: center;
+    z-index: 9;
+}
+.productListBtnDiv > a.active {
+    color: #ff0000ad !important;
+}
+
+
+.imgbtn > a.active, .productListBtn.active {
+    color: #ff0000ad !important;
+}
+.presta-nav2-wishlist-btn {
+    padding: 18px;
+}
+.presta-nav2-wishlist-btn .wishlistCount{
+    float:right;
+    font-size:13px;
+    color:black;
+    font-weight: bolder;
+    position: absolute;
+    top:22px;
+    margin-left: 18px;
+}
+.presta-nav2-wishlist-btn .hearticon{
+    font-size:30px;
+}
+.presta-nav1-wishlist-btn{
+    float: left;
+    padding: 18px;
+}
+
+div#_desktop_wihslist {
+    position: relative;
+    margin-right: 15px;
+}
+.presta-nav1-wishlist-btn .wishlistCount{
+    text-align: center;
+    font-size: 11px;
+    line-height: 21px;
+    color: black;
+    margin-bottom: 0px;
+}
+.presta-nav1-wishlist-btn .wishlistCount:before{
+    content: "("
+}
+.presta-nav1-wishlist-btn .wishlistCount:after{
+    content: ")"
+}
+.presta-nav1-wishlist-btn .hearticon{
+    font-size: 24px;
+}
+.presta-left-padding {
+    padding-left: 0;
+}
+.presta-right-padding {
+    padding-right: 0;
+}
+.presta-padding {
+    padding: 0;
+}
+#module-prestasmartwishlist-mylist input.form-control, #module-prestasmartwishlist-mylist textarea.form-control {
+    background-color: #FFFFFF;
+}
+
+
+
+/* HEART ICON PRODUCT PAGE */
+
+.imgbtn{
+    /*  margin: 11px 163px 59px 16px;*/
+    padding: 10px 15px 10px 15px;
+    object-fit: contain;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: .2s;
+}
+
+.product-actions .imgbtn {
+    padding-left: 0px;
+}
+
+.product-add-to-cart .imgbtn {
+    padding: 10px 10px;
+}
+.imgbtn .btn-info:hover {
+    background: transparent;
+    border: none;
+    /* transform: scale(1.2); */
+    /* transition: all .2s ease-in-out; */
+}
+.imgbtn .btn-info:hover span{
+    transform-origin: center;
+    transform: scale(1.4);
+    transition: all .2s ease-in-out;
+}
+
+.imgbtn .btn-info span{
+    transition: all .2s ease-in-out;
+}
+.imgbtn .btn-info {
+     background: transparent;
+    border: none;
+}
+

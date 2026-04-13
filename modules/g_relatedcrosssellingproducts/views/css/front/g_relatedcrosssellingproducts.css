@@ -1,0 +1,104 @@
+
+section.page-product-box.grelated_products .owl-carousel .owl-item,section.page-product-box.grelated_products .owl-stage ,section.page-product-box.grelated_products .product{
+    display: flex;
+
+}
+section.page-product-box.grelated_products .product{
+    padding: 0px 10px;
+}
+h2.products-section-title, .product-accessories .h5{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    display: black;
+    text-transform: none !important;
+    
+}
+
+section.page-product-box.grelated_products {
+   margin:75px 0px;
+}
+
+.item.even {
+    background: #f2f5f8;
+}
+.grelated_products_list .item {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.grelated_products_image img {
+    width: 100%;
+}
+
+.grelated_products_image {
+    max-width: 150px;
+}
+
+.container_list_reviews {
+    width: 100%;
+}
+.container_list_reviews .mpl-product {
+    margin: 10px 0px;
+}
+.grelated_products_des {
+    width: 100%;
+    max-width: calc(100% - 150px);
+    padding-left: 15px;
+    flex-wrap: wrap;
+}
+.product-price-and-shipping.discount_up span.regular-price {
+    text-decoration: line-through;
+    color: grey;
+    font-size: 14px;
+}
+.left_grelated {
+    width: 100%;
+    max-width: calc(100% - 200px);
+}
+.right_grelated {
+    width: 100%;
+    max-width: 200px;
+    text-align: right;
+}
+.right_grelated span.discount-percentage.discount-product {
+    display: none;
+}
+
+
+.product-price-and-shipping span.price {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-price-and-shipping span.price .taxinclabel {
+    font-size: 8px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+.container_list_reviews .table-container {
+    display: none;
+}
+.right_grelated .ecommaddtocart_productlist .no_stock {
+    width: 100%;
+    border-radius: 5px;
+}
+.right_grelated .ecommaddtocart_productlist .contentbuttons .product-quantity > div > .input-group-btn-vertical > * {
+    position: initial;
+}
+.right_grelated .ecommaddtocart_productlist .contentbuttons .product-quantity > div {
+    background: white;
+    border: 1px solid black;
+}
+.right_grelated .ecommaddtocart_productlist .contentbuttons .product-quantity > div .input-group {
+    background: white;
+}
+.right_grelated input.input-group.ecommaddtocart-quantity.form-control {
+    margin-left: 0px !important;
+}
+.product_grid.products {
+    display: flex;
+    align-items: center;
+    gap: 0px 15px;
+}

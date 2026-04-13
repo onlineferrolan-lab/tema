@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('fonts/icomoon.ttf?scahyk') format('truetype'),
+    url('fonts/icomoon.woff?scahyk') format('woff'),
+    url('fonts/icomoon.svg?scahyk#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-email:before {
+  content: "\e900";
+}
+.icon-order:before {
+  content: "\e901";
+}
+.icon-cart_check:before {
+  content: "\e902";
+}
+.icon-wishlist:before {
+  content: "\e903";
+}
+.icon-cookies:before {
+  content: "\e904";
+}
+.icon-rgpd:before {
+  content: "\e905";
+}
+.icon-address:before {
+  content: "\e906";
+}
+.icon-user:before {
+  content: "\e907";
+}
+.icon-voucher:before {
+  content: "\e908";
+}
+.icon-abono:before {
+  content: "\e909";
+}
+.icon-alert:before {
+  content: "\e90a";
+}
+.icon-social:before {
+  content: "\e90b";
+}
+.icon-alerts:before {
+  content: "\e90c";
+}
+.icon-logout:before {
+  content: "\e90d";
+}
+.icon-Star:before {
+  content: "\e90e";
+}
+.icon-cart:before {
+  content: "\e90f";
+}
+.icon-wishlist_on:before {
+  content: "\e910";
+}
+.icon-search:before {
+  content: "\e911";
+  color: #484848;
+}
+.icon-twitter:before {
+  content: "\e912";
+}
+.icon-facebook:before {
+  content: "\e913";
+}
+.icon-linkedin:before {
+  content: "\e914";
+}
+.icon-instagram:before {
+  content: "\e915";
+}
+.icon-tiktok .path1:before {
+  content: "\e916";
+  color: rgb(0, 0, 0);
+}
+.icon-tiktok .path2:before {
+  content: "\e917";
+  margin-left: -1em;
+  color: rgb(228, 220, 205);
+}
+.icon-youtube:before {
+  content: "\e918";
+}
+.icon-menu:before {
+  content: "\e919";
+  color: #484848;
+}
