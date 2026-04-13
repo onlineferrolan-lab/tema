@@ -144,12 +144,14 @@ body#my-account .contact_help .info_contact > span {
   color: var(--fl-text) !important;
 }
 
-/* Botón CONTACTO */
+/* Botón CONTACTO — triple especificidad para ganar a btn-primary */
+body#my-account #left-column .contact_help a.conctact_link.btn-primary,
+body#my-account .contact_help a.conctact_link.btn-primary,
 body#my-account .contact_help a.conctact_link {
   display: block !important;
   width: 100% !important;
   padding: 10px 16px !important;
-  background: var(--fl-red) !important;
+  background-color: var(--fl-red) !important;
   color: #fff !important;
   font-size: 12px !important;
   font-weight: 600 !important;
@@ -157,13 +159,15 @@ body#my-account .contact_help a.conctact_link {
   text-transform: uppercase !important;
   text-align: center !important;
   text-decoration: none !important;
-  border: 0 !important;
+  border: none !important;
   border-radius: 6px !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
   transition: background-color 0.15s ease;
 }
 
 body#my-account .contact_help a.conctact_link:hover {
-  background: #a50628 !important;
+  background-color: #a50628 !important;
 }
 
 /* =============================================================
@@ -336,10 +340,48 @@ body#my-account .last_orders .order_info > span:nth-child(2) .label_mobile {
   display: none !important;
 }
 
-/* Estado */
+/* Estado — con bola de color */
 body#my-account .last_orders .order_info > span:nth-child(3) {
   font-size: 13px !important;
   font-weight: 500 !important;
+}
+
+/* Bola indicadora (gris por defecto, coloreada via JS data-status) */
+body#my-account .last_orders .order_info > span:nth-child(3)::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  background-color: var(--fl-text-muted);
+}
+
+/* Colores por estado (requiere data-status via JS del módulo o snippet) */
+body#my-account .last_orders .order_info > span[data-status="cancelado"]::before {
+  background-color: #DC3545;
+}
+body#my-account .last_orders .order_info > span[data-status="entregado"]::before {
+  background-color: #28A745;
+}
+body#my-account .last_orders .order_info > span[data-status="enviado"]::before,
+body#my-account .last_orders .order_info > span[data-status="en tránsito"]::before {
+  background-color: #FFC107;
+}
+body#my-account .last_orders .order_info > span[data-status="preparación en curso"]::before,
+body#my-account .last_orders .order_info > span[data-status="en preparación"]::before {
+  background-color: #17A2B8;
+}
+body#my-account .last_orders .order_info > span[data-status="pendiente de pago"]::before,
+body#my-account .last_orders .order_info > span[data-status="pago aceptado"]::before {
+  background-color: #FD7E14;
+}
+body#my-account .last_orders .order_info > span[data-status="reembolsado"]::before {
+  background-color: #6F42C1;
+}
+body#my-account .last_orders .order_info > span[data-status="error en pago"]::before {
+  background-color: #DC3545;
 }
 
 /* Acción */
@@ -416,8 +458,8 @@ body#my-account .contact_block .form-group.row {
   padding: 0 !important;
 }
 
-/* Labels */
-body#my-account .contact_block label,
+/* Labels arriba en gris */
+body#my-account .contact_block .form-group label,
 body#my-account .contact_block .form-control-label {
   display: block !important;
   font-size: 12px !important;
@@ -428,36 +470,43 @@ body#my-account .contact_block .form-control-label {
   margin-bottom: 6px !important;
 }
 
-/* Inputs, selects, textarea */
-body#my-account .contact_block .form-control,
-body#my-account .contact_block select,
-body#my-account .contact_block input[type="text"],
-body#my-account .contact_block input[type="email"],
-body#my-account .contact_block textarea {
+/* Inputs, selects, textarea — especificidad reforzada con cadena completa */
+body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column select.form-control,
+body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column input.form-control,
+body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column textarea.form-control,
+body#my-account .contact_block .form-control.form-control-select,
+body#my-account .contact_block select.form-control,
+body#my-account .contact_block input.form-control,
+body#my-account .contact_block textarea.form-control,
+body#my-account .contact_block .js-input-column select,
+body#my-account .contact_block .js-input-column input,
+body#my-account .contact_block .js-input-column textarea {
   width: 100% !important;
   padding: 11px 14px !important;
   font-size: 14px !important;
   color: var(--fl-text) !important;
-  background: #fff !important;
+  background-color: #fff !important;
   border: 1px solid var(--fl-border-hard) !important;
   border-radius: 6px !important;
   box-shadow: none !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
-/* Focus */
+/* Focus — borde rojo + ring */
 body#my-account .contact_block .form-control:focus,
 body#my-account .contact_block select:focus,
 body#my-account .contact_block input:focus,
 body#my-account .contact_block textarea:focus {
-  outline: none !important;
   border-color: var(--fl-red) !important;
   box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
+  outline: none !important;
 }
 
-/* Select arrow */
+/* Select arrow custom */
+body#my-account .contact_block select.form-control,
 body#my-account .contact_block select {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%236c757d' d='M6 8L1 3h10z'/></svg>") !important;
   background-repeat: no-repeat !important;
@@ -467,27 +516,30 @@ body#my-account .contact_block select {
 }
 
 /* Textarea */
+body#my-account .contact_block textarea.form-control,
 body#my-account .contact_block textarea {
   min-height: 120px !important;
   resize: vertical !important;
 }
 
-/* File input */
-body#my-account .contact_block .attachment_box label,
-body#my-account .contact_block .bootstrap-filestyle label {
+/* File input — botón con borde dashed */
+body#my-account .contact_block .bootstrap-filestyle .btn-default,
+body#my-account .contact_block .bootstrap-filestyle label.btn,
+body#my-account .contact_block .attachment_box label {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 8px;
+  gap: 8px !important;
   padding: 9px 16px !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   text-transform: none !important;
   color: var(--fl-text) !important;
-  background: var(--fl-bg-soft) !important;
+  background-color: var(--fl-bg-soft) !important;
   border: 1px dashed var(--fl-border-hard) !important;
   border-radius: 6px !important;
   cursor: pointer !important;
   letter-spacing: 0 !important;
+  box-shadow: none !important;
 }
 
 /* GDPR checkbox */
@@ -519,14 +571,16 @@ body#my-account .contact_block .gdpr_consent a {
   font-weight: 500 !important;
 }
 
-/* Botón ENVIAR */
+/* Botón ENVIAR — especificidad reforzada */
 body#my-account .contact_block .form-footer {
   padding: 0 !important;
   margin-top: 8px !important;
 }
 
+body#my-account .contact_block .form-footer input.btn.btn-primary,
 body#my-account .contact_block input.btn-primary[type="submit"],
-body#my-account .contact_block button[type="submit"] {
+body#my-account .contact_block button.btn-primary[type="submit"],
+body#my-account .contact_block .form-footer .btn-primary {
   display: inline-block !important;
   padding: 12px 32px !important;
   font-size: 12px !important;
@@ -534,15 +588,18 @@ body#my-account .contact_block button[type="submit"] {
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   color: #fff !important;
-  background: var(--fl-red) !important;
-  border: 0 !important;
+  background-color: var(--fl-red) !important;
+  border: none !important;
   border-radius: 6px !important;
   cursor: pointer !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
   transition: background-color 0.15s ease;
 }
 
-body#my-account .contact_block input.btn-primary[type="submit"]:hover {
-  background: #a50628 !important;
+body#my-account .contact_block .form-footer input.btn-primary:hover,
+body#my-account .contact_block .form-footer .btn-primary:hover {
+  background-color: #a50628 !important;
 }
 
 /* =============================================================
