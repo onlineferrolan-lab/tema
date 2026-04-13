@@ -4,92 +4,554 @@
    Autor: Ferrolan (sobre diseño de Ecomm Sistema)
    Fecha inicio: 2026-04-13
 
-   Este archivo sobreescribe estilos de myaccount.css.
-   Se carga con priority 401 (después del 400 original).
+   Este archivo sobreescribe estilos de myaccount.css y del módulo
+   ecommmyaccount (dashboard custom). Se carga con priority 401.
    NO editar myaccount.css — todo override va aquí.
+
+   Selectores prefijados con body#my-account para ganar
+   especificidad sobre las reglas del tema base.
    ============================================================= */
 
 /* =============================================================
    VARIABLES
    ============================================================= */
-:root {
-  --ferrolan-red: #C40731;
-  --ferrolan-red-light: rgba(196, 7, 49, 0.06);
-  --ferrolan-border: #ECECEC;
-  --ferrolan-text: #2D2D2D;
-  --ferrolan-text-muted: #6C757D;
-  --ferrolan-bg-subtle: #F8F8F8;
-  --ferrolan-radius: 8px;
-  --ferrolan-card-padding: 24px;
+body#my-account {
+  --fl-red: #C40731;
+  --fl-red-soft: rgba(196, 7, 49, 0.08);
+  --fl-text: #2D2D2D;
+  --fl-text-muted: #6C757D;
+  --fl-border: #ECECEC;
+  --fl-border-hard: #D9D9D9;
+  --fl-bg: #FFFFFF;
+  --fl-bg-soft: #FAFAFA;
+  --fl-radius: 8px;
 }
 
 /* =============================================================
-   1. SIDEBAR — NAVEGACIÓN DESKTOP
+   1. LAYOUT GENERAL Y CABECERA
    ============================================================= */
-
-/* Contenedor general */
-.navigation_account {
-  background-color: #fff;
-  border: 1px solid var(--ferrolan-border);
-  border-radius: var(--ferrolan-radius);
-  padding: 0;
-  margin-bottom: 12px;
-  overflow: hidden;
+body#my-account .container_dashboard,
+body#my-account .page-content,
+body#my-account .dashboard_account {
+  background: var(--fl-bg) !important;
 }
 
-/* Títulos de grupo del sidebar */
-.navigation_account .title {
-  display: block;
-  padding: 12px 16px 4px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--ferrolan-text-muted);
+body#my-account .header_dashboard h1,
+body#my-account .header_dashboard .page-title {
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+  color: var(--fl-text);
+}
+
+body#my-account .header_dashboard .h6,
+body#my-account .header_dashboard h2 {
+  font-weight: 400;
+  color: var(--fl-text-muted);
+  font-size: 15px;
+}
+
+/* =============================================================
+   2. SIDEBAR — MENÚ LATERAL DESKTOP
+   ============================================================= */
+body#my-account #left-column.dashboardaccount {
+  background: var(--fl-bg) !important;
+  border-right: 1px solid var(--fl-border);
+  box-shadow: none !important;
+}
+
+/* Ocultar TODOS los iconos del menú */
+body#my-account .navigation_account .item i,
+body#my-account .navigation_account .item svg,
+body#my-account .navigation_account .item img,
+body#my-account .navigation_account .item [class^="icon-"],
+body#my-account .navigation_account .item [class*=" icon-"] {
+  display: none !important;
 }
 
 /* Items del menú */
-.navigation_account .item {
-  display: block;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--ferrolan-text);
-  text-decoration: none;
-  border-left: 3px solid transparent;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-/* Ocultar iconos del sidebar */
-.navigation_account .item i,
-.navigation_account .item .material-icons {
-  display: none;
+body#my-account .navigation_account .item {
+  display: flex !important;
+  align-items: center;
+  padding: 12px 20px !important;
+  margin: 1px 0 !important;
+  color: var(--fl-text) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-left: 2px solid transparent !important;
+  border-radius: 0 !important;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 /* Hover */
-.navigation_account .item:hover {
-  background-color: var(--ferrolan-bg-subtle);
-  text-decoration: none;
-  color: var(--ferrolan-text);
+body#my-account .navigation_account .item:hover {
+  background: var(--fl-bg-soft) !important;
+  color: var(--fl-red) !important;
+  border-left-color: var(--fl-border-hard) !important;
 }
 
-/* Item activo */
-.navigation_account a.item.active,
-.navigation_account a.item[href]:active {
-  border-left-color: var(--ferrolan-red);
-  background-color: var(--ferrolan-red-light);
-  font-weight: 600;
-  color: var(--ferrolan-red);
+/* Activo */
+body#my-account .navigation_account .item.active,
+body#my-account .navigation_account .item.current,
+body#my-account .navigation_account .item[aria-current="page"] {
+  background: var(--fl-red-soft) !important;
+  color: var(--fl-red) !important;
+  font-weight: 500 !important;
+  border-left-color: var(--fl-red) !important;
 }
 
 /* =============================================================
-   2. SIDEBAR — NAVEGACIÓN MÓVIL
+   3. SIDEBAR — BLOQUE "NECESITAS AYUDA?"
+   ============================================================= */
+body#my-account .contact_help {
+  position: relative;
+  margin-top: 24px !important;
+  padding: 20px !important;
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  box-shadow: none !important;
+  text-align: center !important;
+  overflow: hidden;
+}
+
+/* Eliminar fondo ondulado del módulo */
+body#my-account .contact_help .background_contact {
+  display: none !important;
+}
+
+body#my-account .contact_help .info_contact {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Ocultar icono */
+body#my-account .contact_help .info_contact i,
+body#my-account .contact_help .info_contact svg {
+  display: none !important;
+}
+
+/* Texto */
+body#my-account .contact_help .info_contact > span {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+}
+
+/* Botón CONTACTO */
+body#my-account .contact_help a.conctact_link {
+  display: block !important;
+  width: 100% !important;
+  padding: 10px 16px !important;
+  background: var(--fl-red) !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  transition: background-color 0.15s ease;
+}
+
+body#my-account .contact_help a.conctact_link:hover {
+  background: #a50628 !important;
+}
+
+/* =============================================================
+   4. TARJETAS DE CONTENIDO (standard_card)
+   ============================================================= */
+body#my-account .standard_card {
+  background: var(--fl-bg) !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  box-shadow: none !important;
+  padding: 24px !important;
+  margin-bottom: 24px !important;
+}
+
+/* Títulos de bloque */
+body#my-account .title_block_dashboard {
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  text-transform: none !important;
+}
+
+/* Empty states */
+body#my-account .default_message_no {
+  display: block !important;
+  margin: 0 !important;
+  padding: 18px !important;
+  background: var(--fl-bg-soft) !important;
+  border: 1px dashed var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  color: var(--fl-text-muted) !important;
+  font-size: 14px !important;
+  font-style: normal !important;
+  text-align: center !important;
+}
+
+/* =============================================================
+   5. ÚLTIMOS PEDIDOS — Tabla limpia
    ============================================================= */
 
+/* Card sin padding (lo llevan las filas internamente) */
+body#my-account .last_orders.standard_card {
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative !important;
+}
+
+/* Título con padding propio */
+body#my-account .last_orders .title_block_dashboard {
+  padding: 20px 24px 14px !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* "Ver todos los pedidos" alineado con título */
+body#my-account .last_orders a.all_orders {
+  position: absolute !important;
+  top: 18px !important;
+  right: 24px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: none !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+  background: transparent !important;
+}
+
+body#my-account .last_orders a.all_orders:hover {
+  text-decoration: underline !important;
+  background: transparent !important;
+}
+
+/* Header de la tabla */
+body#my-account .last_orders .order_header {
+  display: flex !important;
+  background: var(--fl-bg-soft) !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  border-top: 1px solid var(--fl-border) !important;
+  padding: 0 !important;
+}
+
+body#my-account .last_orders .order_header > span {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--fl-text-muted) !important;
+  padding: 10px 24px !important;
+}
+
+/* Filas de pedidos */
+body#my-account .last_orders .order_info {
+  display: flex !important;
+  align-items: flex-start !important;
+  padding: 16px 24px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  background: #fff !important;
+  transition: background-color 0.12s ease;
+}
+
+body#my-account .last_orders .order_info:last-of-type {
+  border-bottom: none !important;
+}
+
+/* Quitar fondo alterno */
+body#my-account .last_orders .order_info:nth-child(odd),
+body#my-account .last_orders .order_info:nth-child(even) {
+  background: #fff !important;
+}
+
+body#my-account .last_orders .order_info:hover {
+  background: var(--fl-bg-soft) !important;
+}
+
+/* Columnas de datos */
+body#my-account .last_orders .order_info > span {
+  font-size: 13px !important;
+  color: var(--fl-text) !important;
+  line-height: 1.5 !important;
+}
+
+/* Referencia */
+body#my-account .last_orders .order_info .ref_order strong {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+/* Flecha expandir productos */
+body#my-account .last_orders .order_info .show_products_order {
+  width: 16px !important;
+  height: 16px !important;
+  margin-left: 6px !important;
+  opacity: 0.5;
+  vertical-align: middle;
+  transition: opacity 0.15s;
+}
+
+body#my-account .last_orders .order_info:hover .show_products_order {
+  opacity: 0.8;
+}
+
+/* Dirección: compactar con separadores */
+body#my-account .last_orders .order_info > span:nth-child(2) {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.6 !important;
+  max-height: 2.6em !important;
+  overflow: hidden !important;
+}
+
+body#my-account .last_orders .order_info > span:nth-child(2) br {
+  display: inline !important;
+}
+
+body#my-account .last_orders .order_info > span:nth-child(2) br::after {
+  content: ' \00B7  ';
+  font-size: 10px;
+  color: var(--fl-border-hard);
+}
+
+body#my-account .last_orders .order_info > span:nth-child(2) .label_mobile {
+  display: none !important;
+}
+
+/* Estado */
+body#my-account .last_orders .order_info > span:nth-child(3) {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+/* Acción */
+body#my-account .last_orders .order_info > span:nth-child(4) {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* Detalle de productos expandido */
+body#my-account .container_products_from_order {
+  width: 100% !important;
+  padding: 12px 0 4px !important;
+  margin-top: 12px;
+  border-top: 1px dashed var(--fl-border) !important;
+}
+
+body#my-account .container_product_order {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px;
+  padding: 6px 0 !important;
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+body#my-account .container_product_order img.product_img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover;
+  border-radius: 4px !important;
+  border: 1px solid var(--fl-border) !important;
+}
+
+body#my-account .info_product_order strong {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+body#my-account .info_product_order span {
+  font-size: 11px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* =============================================================
+   6. FORMULARIO DE CONTACTO (bloque inferior)
+   ============================================================= */
+
+/* Card sin padding (lo lleva el container interno) */
+body#my-account .contact_block.standard_card {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+body#my-account .contact_block .title_block_dashboard {
+  padding: 20px 24px 14px !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+/* Ocultar h3 redundante */
+body#my-account .contact_block .form-fields h3 {
+  display: none !important;
+}
+
+/* Container del form */
+body#my-account .contact_block .container_contact_form_account {
+  padding: 0 24px 24px !important;
+}
+
+/* Grupos del formulario */
+body#my-account .contact_block .form-group.row {
+  margin-bottom: 16px !important;
+  padding: 0 !important;
+}
+
+/* Labels */
+body#my-account .contact_block label,
+body#my-account .contact_block .form-control-label {
+  display: block !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 6px !important;
+}
+
+/* Inputs, selects, textarea */
+body#my-account .contact_block .form-control,
+body#my-account .contact_block select,
+body#my-account .contact_block input[type="text"],
+body#my-account .contact_block input[type="email"],
+body#my-account .contact_block textarea {
+  width: 100% !important;
+  padding: 11px 14px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  background: #fff !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Focus */
+body#my-account .contact_block .form-control:focus,
+body#my-account .contact_block select:focus,
+body#my-account .contact_block input:focus,
+body#my-account .contact_block textarea:focus {
+  outline: none !important;
+  border-color: var(--fl-red) !important;
+  box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
+}
+
+/* Select arrow */
+body#my-account .contact_block select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%236c757d' d='M6 8L1 3h10z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 10px !important;
+  padding-right: 36px !important;
+}
+
+/* Textarea */
+body#my-account .contact_block textarea {
+  min-height: 120px !important;
+  resize: vertical !important;
+}
+
+/* File input */
+body#my-account .contact_block .attachment_box label,
+body#my-account .contact_block .bootstrap-filestyle label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px;
+  padding: 9px 16px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  color: var(--fl-text) !important;
+  background: var(--fl-bg-soft) !important;
+  border: 1px dashed var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  letter-spacing: 0 !important;
+}
+
+/* GDPR checkbox */
+body#my-account .contact_block .gdpr_consent {
+  margin-top: 8px !important;
+}
+
+body#my-account .contact_block .gdpr_consent label {
+  display: inline !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.5 !important;
+}
+
+body#my-account .contact_block .gdpr_consent input[type="checkbox"] {
+  accent-color: var(--fl-red) !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+}
+
+body#my-account .contact_block .gdpr_consent a {
+  color: var(--fl-red) !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
+}
+
+/* Botón ENVIAR */
+body#my-account .contact_block .form-footer {
+  padding: 0 !important;
+  margin-top: 8px !important;
+}
+
+body#my-account .contact_block input.btn-primary[type="submit"],
+body#my-account .contact_block button[type="submit"] {
+  display: inline-block !important;
+  padding: 12px 32px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  background: var(--fl-red) !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease;
+}
+
+body#my-account .contact_block input.btn-primary[type="submit"]:hover {
+  background: #a50628 !important;
+}
+
+/* =============================================================
+   7. SIDEBAR MÓVIL
+   ============================================================= */
 .navigation_mobile {
-  border: 1px solid var(--ferrolan-border);
-  border-radius: var(--ferrolan-radius);
-  background-color: #fff;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  background-color: #fff !important;
   margin-bottom: 16px;
   overflow: hidden;
 }
@@ -98,280 +560,69 @@
   padding: 12px 16px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--ferrolan-text);
+  color: var(--fl-text);
   text-decoration: none;
-}
-
-.navigation_mobile .btn-link:focus,
-.navigation_mobile .btn-link:hover {
-  text-decoration: none;
-  color: var(--ferrolan-text);
 }
 
 .navigation_mobile .card-body {
-  border-top: 1px solid var(--ferrolan-border);
+  border-top: 1px solid var(--fl-border);
   padding: 4px 0;
 }
 
 .navigation_mobile .card-body > * {
   padding: 10px 16px;
   font-size: 14px;
-  color: var(--ferrolan-text);
+  color: var(--fl-text);
 }
 
-/* Ocultar iconos en móvil también */
 .navigation_mobile .card-body .item i,
 .navigation_mobile .card-body .item .material-icons {
-  display: none;
+  display: none !important;
 }
 
 .navigation_mobile .card-body .item.active {
-  border-left: 3px solid var(--ferrolan-red);
-  background-color: var(--ferrolan-red-light);
+  border-left: 3px solid var(--fl-red);
+  background-color: var(--fl-red-soft);
   font-weight: 600;
-  color: var(--ferrolan-red);
+  color: var(--fl-red);
 }
 
 .navigation_mobile .card-body .item:hover {
-  background-color: var(--ferrolan-bg-subtle);
+  background-color: var(--fl-bg-soft);
 }
 
 /* =============================================================
-   3. DASHBOARD — TÍTULO Y DESCRIPCIÓN
+   8. RESPONSIVE
    ============================================================= */
-
-/* Contenedor general de contenido */
-.page-customer-account #content {
-  font-size: 14px;
-  color: var(--ferrolan-text);
-}
-
-/* Título "Hola [nombre]:" */
-#my-account h1.my-account-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--ferrolan-text);
-  margin-bottom: 8px;
-}
-
-/* Descripción debajo del título */
-#my-account .my-account-description {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--ferrolan-border);
-  align-items: center;
-}
-
-#my-account .my-account-description .desc {
-  font-size: 14px;
-  color: var(--ferrolan-text-muted);
-}
-
-/* Botón logout */
-a.close_session.myaccount {
-  display: inline-block;
-  padding: 8px 20px;
-  width: auto;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ferrolan-text-muted);
-  border: 1px solid var(--ferrolan-border);
-  border-radius: var(--ferrolan-radius);
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-a.close_session.myaccount:hover {
-  border-color: var(--ferrolan-red);
-  color: var(--ferrolan-red);
-}
-
-/* =============================================================
-   4. DASHBOARD — SUBTÍTULOS DE SECCIÓN
-   ============================================================= */
-
-#my-account .subtitle {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--ferrolan-text-muted);
-  margin: 24px 0 12px;
-  padding: 0;
-  display: block;
-}
-
-/* Primer subtitle no necesita tanto margen arriba */
-#my-account .row > .subtitle:first-child {
-  margin-top: 0;
-}
-
-/* =============================================================
-   5. DASHBOARD — TARJETAS DE ENLACE
-   ============================================================= */
-
-#my-account .link-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid var(--ferrolan-border);
-  border-radius: var(--ferrolan-radius);
-  padding: var(--ferrolan-card-padding);
-  margin-bottom: 12px;
-  box-shadow: none;
-  transition: border-color 0.15s ease;
-  font-size: 14px;
-}
-
-#my-account .link-item:hover {
-  border-color: #D0D0D0;
-}
-
-/* Iconos dentro de las tarjetas */
-#my-account .link-item > i {
-  width: 40px;
-  font-size: 28px;
-  margin-right: 16px;
-  color: var(--ferrolan-text-muted);
-  flex-shrink: 0;
-}
-
-#my-account .link-item > i:before {
-  font-size: 28px;
-}
-
-/* Contenido de la tarjeta */
-#my-account .link-item > .history-content {
-  width: auto;
-  flex: 1;
-}
-
-#my-account .link-item > .history-content .title {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ferrolan-text);
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-
-#my-account .link-item > .history-content .desc {
-  font-size: 13px;
-  color: var(--ferrolan-text-muted);
-  margin: 0;
-  line-height: 1.4;
-  height: auto;
-}
-
-/* Links en el grid — quitar estilos heredados */
-#my-account .row > a {
-  text-decoration: none;
-  color: inherit;
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-}
-
-#my-account .row > a:hover {
-  text-decoration: none;
-}
-
-/* =============================================================
-   6. DASHBOARD — BLOQUE MÓDULOS (displayCustomerAccountContent)
-   ============================================================= */
-
-.displayCustomerAccountContent {
-  display: flex;
-  flex-wrap: wrap;
-  padding-right: 0;
-}
-
-.displayCustomerAccountContent > * {
-  width: 50%;
-}
-
-.displayCustomerAccountContent > li > a > span,
-.displayCustomerAccountContent > a > span {
-  height: auto;
-  min-height: 75px;
-}
-
-#my-account .displayCustomerAccountContent .link-item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--ferrolan-text);
-  line-height: 1.4;
-  border: 1px solid var(--ferrolan-border);
-  border-radius: var(--ferrolan-radius);
-  padding: var(--ferrolan-card-padding);
-  box-shadow: none;
-}
-
-#my-account .displayCustomerAccountContent .link-item .material-icons {
-  font-size: 0;
-  height: 32px;
-  width: 32px;
-  margin-right: 16px;
-}
-
-/* =============================================================
-   7. DASHBOARD — BLOQUE CONTACTO
-   ============================================================= */
-
-#my-account #link_contact .link-item {
-  border: 1px solid var(--ferrolan-border);
-  border-radius: var(--ferrolan-radius);
-  padding: var(--ferrolan-card-padding);
-  box-shadow: none;
-  flex-wrap: wrap;
-}
-
-#my-account #link_contact .link-item > .history-content .desc {
-  height: auto;
-}
-
-.btn_contact {
-  display: inline-block;
-  padding: 10px 28px;
-  margin: 12px 0 0;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #fff;
-  background-color: var(--ferrolan-red);
-  border: none;
-  border-radius: var(--ferrolan-radius);
-  text-decoration: none;
-  transition: background-color 0.15s ease;
-  cursor: pointer;
-}
-
-.btn_contact:hover {
-  background-color: #a50628;
-  color: #fff;
-  text-decoration: none;
-}
-
-/* =============================================================
-   8. FOOTER DE PÁGINA (link "Salir")
-   ============================================================= */
-
-.page-footer .account-link {
-  margin-right: 1rem;
-}
-
-.page-footer .account-link span {
-  font-size: 14px;
-}
-
-/* =============================================================
-   9. RESPONSIVE
-   ============================================================= */
-
 @media (max-width: 991px) {
+  body#my-account .standard_card {
+    padding: 18px !important;
+    margin-bottom: 16px !important;
+    border-radius: 6px !important;
+  }
+
+  body#my-account .header_dashboard h1 {
+    font-size: 26px !important;
+  }
+
+  body#my-account .title_block_dashboard {
+    font-size: 15px !important;
+    margin-bottom: 14px !important;
+    padding-bottom: 10px !important;
+  }
+
+  body#my-account .navigation_account .item {
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+  }
+
+  body#my-account .form-control,
+  body#my-account input,
+  body#my-account select,
+  body#my-account textarea {
+    font-size: 16px !important;   /* evita zoom en iOS */
+  }
+
   .sidebarmyaccount {
     padding-left: 0;
     padding-right: 0;
@@ -381,45 +632,37 @@ a.close_session.myaccount:hover {
     padding-left: 0;
     padding-right: 0;
   }
-}
 
-@media (max-width: 767px) {
-  #my-account h1.my-account-title {
-    font-size: 18px;
+  /* Pedidos en cards verticales en móvil */
+  body#my-account .last_orders .order_info {
+    flex-direction: column !important;
+    gap: 8px;
+    padding: 14px 18px !important;
   }
 
-  #my-account .my-account-description {
-    flex-direction: column;
-    gap: 12px;
+  body#my-account .last_orders .order_header {
+    display: none !important;
   }
 
-  #my-account .my-account-description .text-end {
-    text-align: left !important;
+  body#my-account .last_orders .order_info > span:nth-child(2) {
+    max-height: none !important;
   }
 
-  a.close_session.myaccount {
-    width: 100%;
-    text-align: center;
+  body#my-account .last_orders .order_info > span .label_mobile {
+    display: inline !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--fl-text-muted) !important;
+    margin-right: 6px !important;
   }
 
-  /* Tarjetas a full width en móvil */
-  .displayCustomerAccountContent > * {
-    width: 100%;
-  }
-
-  #my-account .link-item > .history-content .desc {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .btn_contact {
-    width: 100%;
-    text-align: center;
-    padding: 12px 20px;
-  }
-
-  /* Cards más compactas en móvil */
-  #my-account .link-item {
-    padding: 16px;
+  body#my-account .last_orders a.all_orders {
+    position: static !important;
+    display: block !important;
+    padding: 14px 18px !important;
+    text-align: center !important;
+    border-top: 1px solid var(--fl-border) !important;
   }
 }
