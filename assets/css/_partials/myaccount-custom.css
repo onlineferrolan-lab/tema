@@ -759,7 +759,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin-bottom: 24px !important;
 }
 
-/* Contenedor de pedidos — tabla visual */
+/* Contenedor de pedidos — tabla visual, full width */
 #history .orders_history {
   display: flex !important;
   flex-direction: column !important;
@@ -768,6 +768,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   border-radius: var(--fl-radius) !important;
   overflow: hidden !important;
   background: #fff !important;
+  width: 100% !important;
 }
 
 /* Cada pedido — fila con estructura de tabla */
@@ -1605,35 +1606,60 @@ body .page-customer-account .alert-info,
   margin-bottom: 20px !important;
 }
 
-/* Cada producto — fila limpia */
+/* Contenedor con borde */
+.ecommproductshistory #products-content {
+  border: 1px solid var(--fl-border, #ECECEC) !important;
+  border-radius: var(--fl-radius, 8px) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+/* Cada producto — fila con grid 3 zonas */
 .ecommproductshistory #products-content .row.product {
-  display: flex !important;
+  display: grid !important;
+  grid-template-columns: 70px 1fr auto !important;
   align-items: center !important;
-  padding: 16px 0 !important;
+  gap: 16px !important;
+  padding: 14px 20px !important;
   border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
   margin: 0 !important;
+  transition: background-color 0.12s ease;
 }
 
 .ecommproductshistory #products-content .row.product:last-of-type {
   border-bottom: none !important;
 }
 
+.ecommproductshistory #products-content .row.product:hover {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+}
+
+/* Columnas — reset bootstrap */
+.ecommproductshistory .img-container,
+.ecommproductshistory .prop-container,
+.ecommproductshistory .add-container {
+  width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+  padding: 0 !important;
+}
+
 /* Imagen */
 .ecommproductshistory .img-container img {
-  width: 60px !important;
-  height: 60px !important;
+  width: 56px !important;
+  height: 56px !important;
   object-fit: cover !important;
   border-radius: 6px !important;
   border: 1px solid var(--fl-border, #ECECEC) !important;
 }
 
-/* Nombre del producto */
+/* Info del producto */
 .ecommproductshistory .prop-container .prop-name {
-  margin-bottom: 4px !important;
+  margin-bottom: 2px !important;
 }
 
 .ecommproductshistory .prop-container .prop-name a {
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 600 !important;
   color: var(--fl-text, #2D2D2D) !important;
   text-decoration: none !important;
@@ -1643,38 +1669,60 @@ body .page-customer-account .alert-info,
   color: var(--fl-red, #C40731) !important;
 }
 
-/* Cantidad */
 .ecommproductshistory .prop-container .prop-qty {
   font-size: 12px !important;
   color: var(--fl-text-muted, #6C757D) !important;
   margin: 0 !important;
 }
 
-/* Precio */
+/* Zona derecha — precio + cantidad + botón en línea */
+.ecommproductshistory .add-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.ecommproductshistory .add-container p {
+  margin: 0 !important;
+  min-width: 60px !important;
+  text-align: right !important;
+}
+
 .ecommproductshistory .add-container p strong {
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
   color: var(--fl-text, #2D2D2D) !important;
 }
 
-/* Botón añadir al carrito */
+/* Botón añadir */
 .ecommproductshistory .add-to-cart {
-  padding: 8px 16px !important;
-  font-size: 12px !important;
+  padding: 8px 14px !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
-  border-radius: 6px !important;
+  border-radius: 5px !important;
+  white-space: nowrap !important;
 }
 
-/* Cantidad input */
+/* Input cantidad */
 .ecommproductshistory .qty input {
-  width: 50px !important;
+  width: 44px !important;
   text-align: center !important;
   border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
   border-radius: 4px !important;
-  padding: 6px !important;
+  padding: 6px 4px !important;
+  font-size: 13px !important;
+}
+
+/* Botones +/- */
+.ecommproductshistory .bootstrap-touchspin .btn {
+  padding: 4px 8px !important;
   font-size: 14px !important;
+  border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
+  background: #fff !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  border-radius: 4px !important;
 }
 
 /* Paginación */
