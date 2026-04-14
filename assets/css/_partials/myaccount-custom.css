@@ -794,10 +794,10 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background: var(--fl-bg-soft) !important;
 }
 
-/* Info — grid de 4 columnas con anchos proporcionados */
+/* Info — flex que ocupa todo el espacio disponible */
 #history .order_history .history_info {
-  display: grid !important;
-  grid-template-columns: 2fr 1.2fr 1fr 1.2fr !important;
+  display: flex !important;
+  flex: 1 1 0% !important;
   gap: 0 !important;
   margin-bottom: 0 !important;
   align-items: center !important;
@@ -805,10 +805,15 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
 }
 
 #history .order_history .history_info .item {
+  flex: 1 !important;
+}
+
+#history .order_history .history_info .item {
   display: flex !important;
   flex-direction: column !important;
   gap: 1px !important;
   padding: 0 16px 0 0 !important;
+  min-width: 0 !important;
 }
 
 #history .order_history .history_info .item.item_status {
