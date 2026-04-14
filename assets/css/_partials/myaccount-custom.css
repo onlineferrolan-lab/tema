@@ -759,8 +759,12 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin-bottom: 24px !important;
 }
 
-/* Contenedor de pedidos — tabla visual */
-#history .orders_history {
+/* Contenedor de pedidos — columna única */
+#history .orders_history,
+body#history .orders_history {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
   border: 1px solid var(--fl-border) !important;
   border-radius: var(--fl-radius) !important;
   overflow: hidden !important;
@@ -770,7 +774,8 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
 
 /* Cada pedido — una fila con info a la izq y botones a la der */
 #history .order_history,
-#history .orders_history > .order_history {
+#history .orders_history > .order_history,
+body#history .order_history {
   background: #fff !important;
   border: none !important;
   border-bottom: 1px solid var(--fl-border) !important;
@@ -779,9 +784,12 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin: 0 !important;
   box-shadow: none !important;
   display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center !important;
   justify-content: space-between !important;
   gap: 16px !important;
+  width: 100% !important;
   transition: background-color 0.12s ease;
 }
 
