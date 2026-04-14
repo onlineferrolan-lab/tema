@@ -744,11 +744,15 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
    C. HISTORIAL DE PEDIDOS (body#history)
    ============================================================= */
 
-/* Contenido sin padding izquierdo extra */
+/* Contenido — quitar padding-left extra pero mantener top */
 body#history #content,
-body#history .page-content,
+body#history .page-content {
+  padding-left: 0 !important;
+}
+
 body#history #content-wrapper {
   padding-left: 0 !important;
+  padding-top: 15px !important;
 }
 
 /* Título de página */
