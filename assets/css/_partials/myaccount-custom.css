@@ -744,6 +744,13 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
    C. HISTORIAL DE PEDIDOS (body#history)
    ============================================================= */
 
+/* Contenido sin padding izquierdo extra */
+body#history #content,
+body#history .page-content,
+body#history #content-wrapper {
+  padding-left: 0 !important;
+}
+
 /* Título de página */
 #history h1 {
   font-size: 22px !important;
@@ -759,7 +766,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin-bottom: 24px !important;
 }
 
-/* Contenedor de pedidos — columna única */
+/* Contenedor de pedidos — columna única, sin padding interno */
 #history .orders_history,
 body#history .orders_history {
   display: flex !important;
@@ -770,6 +777,14 @@ body#history .orders_history {
   overflow: hidden !important;
   background: #fff !important;
   width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Reset del contenedor viejo .orders que puede meter margen */
+#history .orders {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Cada pedido — una fila con info a la izq y botones a la der */
