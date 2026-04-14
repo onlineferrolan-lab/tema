@@ -768,7 +768,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   width: 100% !important;
 }
 
-/* Cada pedido — fila tipo tabla con 7 columnas */
+/* Cada pedido — una fila con info a la izq y botones a la der */
 #history .order_history,
 #history .orders_history > .order_history {
   background: #fff !important;
@@ -777,12 +777,11 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   border-radius: 0 !important;
   padding: 14px 20px !important;
   margin: 0 !important;
-  margin-bottom: 0 !important;
   box-shadow: none !important;
-  display: grid !important;
-  grid-template-columns: minmax(100px, 1.5fr) minmax(80px, 1fr) minmax(70px, 0.8fr) minmax(90px, 1.2fr) auto auto auto !important;
+  display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
   transition: background-color 0.12s ease;
 }
 
@@ -794,21 +793,19 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background: var(--fl-bg-soft) !important;
 }
 
-/* Info — ocultar labels en desktop, solo valores */
+/* Info — fila horizontal, ocultar labels */
 #history .order_history .history_info {
-  display: contents !important;
-  margin-bottom: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  flex: 1 !important;
+  margin: 0 !important;
 }
 
 #history .order_history .history_info .item {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  padding: 0 !important;
   min-width: 0 !important;
 }
 
-/* Ocultar labels en desktop */
 #history .order_history .history_info .title {
   display: none !important;
 }
@@ -817,6 +814,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
+  width: auto !important;
 }
 
 #history .order_history .history_info .value {
@@ -824,11 +822,9 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   font-weight: 500 !important;
   color: var(--fl-text) !important;
   white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
 }
 
-/* Referencia más prominente */
+/* Referencia bold */
 #history .order_history .history_info .item:first-child .value {
   font-weight: 600 !important;
 }
@@ -851,9 +847,16 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background-color: currentColor;
 }
 
-/* Botones — inline a la derecha */
+/* Botones — a la derecha */
 #history .order_history .history_buttons {
-  display: contents !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 #history .order_history .history_buttons > a {
@@ -868,6 +871,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background: #fff !important;
   transition: all 0.15s ease;
   white-space: nowrap !important;
+  width: auto !important;
 }
 
 /* "Detalles" — primario rojo */
