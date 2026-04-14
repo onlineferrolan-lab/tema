@@ -759,7 +759,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin-bottom: 24px !important;
 }
 
-/* Contenedor de pedidos — tabla visual, full width */
+/* Contenedor de pedidos — tabla visual */
 #history .orders_history {
   display: flex !important;
   flex-direction: column !important;
@@ -771,18 +771,24 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   width: 100% !important;
 }
 
-/* Cada pedido — fila con estructura de tabla */
+/* Primera fila — simular header con borde inferior más grueso */
+#history .orders_history .order_history:first-child {
+  border-bottom: 2px solid var(--fl-border) !important;
+}
+
+/* Cada pedido — una fila tipo tabla con 7 columnas */
 #history .order_history {
   background: #fff !important;
   border: none !important;
   border-bottom: 1px solid var(--fl-border) !important;
   border-radius: 0 !important;
-  padding: 0 !important;
+  padding: 14px 20px !important;
   margin-bottom: 0 !important;
   box-shadow: none !important;
   display: grid !important;
-  grid-template-columns: 1fr auto !important;
+  grid-template-columns: minmax(100px, 1.5fr) minmax(80px, 1fr) minmax(70px, 0.8fr) minmax(90px, 1.2fr) auto auto auto !important;
   align-items: center !important;
+  gap: 12px !important;
   transition: background-color 0.12s ease;
 }
 
@@ -794,53 +800,49 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background: var(--fl-bg-soft) !important;
 }
 
-/* Info — flex que ocupa todo el espacio disponible */
+/* Info — ocultar labels en desktop, solo valores */
 #history .order_history .history_info {
-  display: flex !important;
-  flex: 1 1 0% !important;
-  gap: 0 !important;
+  display: contents !important;
   margin-bottom: 0 !important;
-  align-items: center !important;
-  padding: 16px 0 16px 24px !important;
-}
-
-#history .order_history .history_info .item {
-  flex: 1 !important;
 }
 
 #history .order_history .history_info .item {
   display: flex !important;
   flex-direction: column !important;
-  gap: 1px !important;
-  padding: 0 16px 0 0 !important;
+  justify-content: center !important;
+  padding: 0 !important;
   min-width: 0 !important;
 }
 
-#history .order_history .history_info .item.item_status {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  border-top: none !important;
-  border-left: 1px solid var(--fl-border) !important;
-  padding-left: 16px !important;
+/* Ocultar labels en desktop */
+#history .order_history .history_info .title {
+  display: none !important;
 }
 
-#history .order_history .history_info .title {
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  color: var(--fl-text-muted) !important;
-  margin-bottom: 0 !important;
-  white-space: nowrap !important;
-  line-height: 1.2 !important;
+#history .order_history .history_info .item.item_status {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
 }
 
 #history .order_history .history_info .value {
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
   color: var(--fl-text) !important;
   white-space: nowrap !important;
-  line-height: 1.4 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Referencia más prominente */
+#history .order_history .history_info .item:first-child .value {
+  font-weight: 600 !important;
+}
+
+/* Fecha y precio en gris */
+#history .order_history .history_info .item:nth-child(2) .value,
+#history .order_history .history_info .item:nth-child(3) .value {
+  color: var(--fl-text-muted) !important;
 }
 
 /* Bola de color en estado */
@@ -855,18 +857,9 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background-color: currentColor;
 }
 
-/* Botones — a la derecha, compactos */
+/* Botones — inline a la derecha */
 #history .order_history .history_buttons {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 6px !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 16px 24px 16px 16px !important;
-  margin: 0 !important;
-  flex-shrink: 0 !important;
-  align-items: center !important;
-  border-left: 1px solid var(--fl-border) !important;
+  display: contents !important;
 }
 
 #history .order_history .history_buttons > a {
@@ -880,7 +873,6 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   color: var(--fl-text) !important;
   background: #fff !important;
   transition: all 0.15s ease;
-  width: auto !important;
   white-space: nowrap !important;
 }
 
@@ -1687,10 +1679,15 @@ body .page-customer-account .alert-info,
   gap: 12px !important;
 }
 
+.ecommproductshistory .add-container form {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
 .ecommproductshistory .add-container p {
   margin: 0 !important;
   min-width: 60px !important;
-  text-align: right !important;
 }
 
 .ecommproductshistory .add-container p strong {
@@ -1699,7 +1696,52 @@ body .page-customer-account .alert-info,
   color: var(--fl-text, #2D2D2D) !important;
 }
 
-/* Botón añadir */
+/* Cantidad — contenedor inline */
+.ecommproductshistory .add-qty {
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+.ecommproductshistory .bootstrap-touchspin {
+  display: flex !important;
+  align-items: center !important;
+  border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
+  border-radius: 5px !important;
+  overflow: hidden !important;
+}
+
+/* Input cantidad */
+.ecommproductshistory .qty input,
+.ecommproductshistory .bootstrap-touchspin input {
+  width: 40px !important;
+  text-align: center !important;
+  border: none !important;
+  border-left: 1px solid var(--fl-border-hard, #D9D9D9) !important;
+  border-right: 1px solid var(--fl-border-hard, #D9D9D9) !important;
+  border-radius: 0 !important;
+  padding: 6px 4px !important;
+  font-size: 13px !important;
+  box-shadow: none !important;
+}
+
+/* Botones +/- */
+.ecommproductshistory .bootstrap-touchspin .btn,
+.ecommproductshistory .bootstrap-touchspin .input-group-btn .btn {
+  padding: 6px 10px !important;
+  font-size: 14px !important;
+  border: none !important;
+  background: #fff !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+}
+
+.ecommproductshistory .bootstrap-touchspin .btn:hover {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+}
+
+/* Botón añadir al carrito */
 .ecommproductshistory .add-to-cart {
   padding: 8px 14px !important;
   font-size: 11px !important;
@@ -1708,26 +1750,6 @@ body .page-customer-account .alert-info,
   letter-spacing: 0.04em !important;
   border-radius: 5px !important;
   white-space: nowrap !important;
-}
-
-/* Input cantidad */
-.ecommproductshistory .qty input {
-  width: 44px !important;
-  text-align: center !important;
-  border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
-  border-radius: 4px !important;
-  padding: 6px 4px !important;
-  font-size: 13px !important;
-}
-
-/* Botones +/- */
-.ecommproductshistory .bootstrap-touchspin .btn {
-  padding: 4px 8px !important;
-  font-size: 14px !important;
-  border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
-  background: #fff !important;
-  color: var(--fl-text, #2D2D2D) !important;
-  border-radius: 4px !important;
 }
 
 /* Paginación */
@@ -1902,32 +1924,21 @@ table.footab .btn {
     border-top: 1px solid var(--fl-border) !important;
   }
 
-  /* Historial — layout vertical en tablet */
+  /* Historial — stack vertical en tablet */
   #history .order_history {
-    grid-template-columns: 1fr !important;
-  }
-
-  #history .order_history .history_info {
     grid-template-columns: 1fr 1fr !important;
-    gap: 12px !important;
-    padding: 16px !important;
+    gap: 4px 12px !important;
+    padding: 14px 16px !important;
   }
 
-  #history .order_history .history_info .item.item_status {
-    border-left: none !important;
-    padding-left: 0 !important;
-  }
-
-  #history .order_history .history_buttons {
-    border-left: none !important;
-    border-top: 1px solid var(--fl-border) !important;
-    padding: 12px 16px !important;
-    width: 100% !important;
-    flex-wrap: wrap !important;
+  #history .order_history .history_info .title {
+    display: block !important;
+    font-size: 9px !important;
   }
 
   #history .order_history .history_buttons > a {
-    flex: 1 !important;
+    padding: 7px 10px !important;
+    font-size: 11px !important;
   }
 
   /* Productos comprados — stack vertical */
