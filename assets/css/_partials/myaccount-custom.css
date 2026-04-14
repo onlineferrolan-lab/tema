@@ -1017,6 +1017,17 @@ body#my-account .header_dashboard h1 {
   letter-spacing: 0.02em !important;
 }
 
+/* Labels de campo (Nombre, Apellidos, etc.) en identity — más grandes */
+body#identity .form-group .label,
+body#identity #customer-form .form-group span.label,
+body#identity #customer-form .sub-form-group .label {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
 /* Valor del input — proporcionado con el label */
 .page-customer-account #customer-form .form-control,
 .page-customer-account #customer-form input,
@@ -1969,5 +1980,33 @@ table.footab .btn {
 
   #history h1 {
     font-size: 18px !important;
+  }
+
+  /* Productos comprados — stack vertical en mobile */
+  .ecommproductshistory #products-content .row.product {
+    grid-template-columns: 50px 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .ecommproductshistory .add-container {
+    grid-column: 1 / -1 !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .ecommproductshistory .add-container form {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .ecommproductshistory .img-container img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .ecommproductshistory .prop-container .prop-name a {
+    font-size: 12px !important;
   }
 }
