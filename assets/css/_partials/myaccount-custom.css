@@ -771,10 +771,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   width: 100% !important;
 }
 
-/* Primera fila — simular header con borde inferior más grueso */
-#history .orders_history .order_history:first-child {
-  border-bottom: 2px solid var(--fl-border) !important;
-}
+/* Sin header visual — todas las filas iguales */
 
 /* Cada pedido — una fila tipo tabla con 7 columnas */
 #history .order_history {
@@ -1696,61 +1693,7 @@ body .page-customer-account .alert-info,
   color: var(--fl-text, #2D2D2D) !important;
 }
 
-/* Cantidad — contenedor inline */
-.ecommproductshistory .add-qty {
-  align-items: center !important;
-  gap: 0 !important;
-}
-
-.ecommproductshistory .bootstrap-touchspin {
-  display: flex !important;
-  align-items: center !important;
-  border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
-  border-radius: 5px !important;
-  overflow: hidden !important;
-}
-
-/* Input cantidad */
-.ecommproductshistory .qty input,
-.ecommproductshistory .bootstrap-touchspin input {
-  width: 40px !important;
-  text-align: center !important;
-  border: none !important;
-  border-left: 1px solid var(--fl-border-hard, #D9D9D9) !important;
-  border-right: 1px solid var(--fl-border-hard, #D9D9D9) !important;
-  border-radius: 0 !important;
-  padding: 6px 4px !important;
-  font-size: 13px !important;
-  box-shadow: none !important;
-}
-
-/* Botones +/- */
-.ecommproductshistory .bootstrap-touchspin .btn,
-.ecommproductshistory .bootstrap-touchspin .input-group-btn .btn {
-  padding: 6px 10px !important;
-  font-size: 14px !important;
-  border: none !important;
-  background: #fff !important;
-  color: var(--fl-text, #2D2D2D) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  line-height: 1 !important;
-}
-
-.ecommproductshistory .bootstrap-touchspin .btn:hover {
-  background: var(--fl-bg-soft, #FAFAFA) !important;
-}
-
-/* Botón añadir al carrito */
-.ecommproductshistory .add-to-cart {
-  padding: 8px 14px !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  border-radius: 5px !important;
-  white-space: nowrap !important;
-}
+/* Botones qty y añadir — heredar estilos originales del theme */
 
 /* Paginación */
 .ecommproductshistory #products-pagination {
