@@ -1105,6 +1105,305 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
 }
 
 /* =============================================================
+   C5. DETALLE DE PEDIDO (body#order-detail)
+   ============================================================= */
+
+/* --- Barra info superior: fecha · referencia · estado --- */
+#order-detail .order_info {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 14px 20px !important;
+  margin-bottom: 20px !important;
+  background: var(--fl-bg-soft) !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail .order_info strong {
+  color: var(--fl-text) !important;
+}
+
+#order-detail .order_info .state {
+  float: none !important;
+  margin-left: auto;
+  font-weight: 500 !important;
+}
+
+#order-detail .order_info .state .value::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  background-color: currentColor;
+}
+
+/* --- Bloque resumen (direcciones + pago + totales) --- */
+#order-detail .order_resume .box {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+  box-shadow: none !important;
+}
+
+/* Títulos de sección dentro del resumen */
+#order-detail .order_resume .title,
+#order-detail .order_summary .title {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+
+/* Acordeón de direcciones */
+#order-detail .order_resume .btn-link {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+  text-decoration: none !important;
+  padding: 8px 0 !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+}
+
+#order-detail .order_resume .btn-link:focus,
+#order-detail .order_resume .btn-link:hover {
+  text-decoration: none !important;
+  color: var(--fl-red) !important;
+}
+
+#order-detail .order_resume .btn-link i {
+  font-size: 18px !important;
+  float: right;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail .order_resume .card-body {
+  padding: 12px 0 !important;
+}
+
+#order-detail .order_resume .card-body address {
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.6 !important;
+  font-style: normal !important;
+}
+
+/* Items de info (método pago, transportista) */
+#order-detail .order_resume .item {
+  margin-bottom: 12px !important;
+  padding-bottom: 0 !important;
+}
+
+#order-detail .order_resume .item .title {
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 2px !important;
+}
+
+#order-detail .order_resume .item > span:not(.title) {
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+}
+
+/* Resumen de precios */
+#order-detail .order_summary .line-subtotal {
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 4px 0 !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail .order_summary .line-subtotal .value {
+  float: none !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+}
+
+#order-detail .order_summary .line-total {
+  display: flex !important;
+  justify-content: space-between !important;
+  border-top: 1px solid var(--fl-border) !important;
+  margin-top: 8px !important;
+  padding-top: 10px !important;
+}
+
+#order-detail .order_summary .line-total span {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+/* --- Acciones (Reordenar, Reportar, Devolver, Factura) --- */
+#order-detail .order_actions {
+  margin-bottom: 24px !important;
+}
+
+#order-detail .order_actions .oactions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+#order-detail .order_actions .oactions .oaction {
+  flex: 1 !important;
+  max-width: none !important;
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  color: var(--fl-text) !important;
+  background: #fff !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease;
+}
+
+#order-detail .order_actions .oactions .oaction:first-child {
+  border-color: var(--fl-border-hard) !important;
+  border-left: 1px solid var(--fl-border-hard) !important;
+}
+
+#order-detail .order_actions .oactions .oaction:hover {
+  background: var(--fl-bg-soft) !important;
+  border-color: var(--fl-red) !important;
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+}
+
+/* --- Tabla de productos (desktop) --- */
+.page-order-detail .box {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+  overflow: hidden;
+}
+
+#order-detail #order-products {
+  border: none !important;
+  margin: 0 !important;
+}
+
+#order-detail #order-products thead th {
+  background: var(--fl-bg-soft) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail #order-products tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  vertical-align: middle !important;
+}
+
+#order-detail #order-products tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+#order-detail #order-products tbody td a {
+  color: var(--fl-text) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+#order-detail #order-products tbody td a:hover {
+  color: var(--fl-red) !important;
+}
+
+#order-detail #order-products tfoot td {
+  border: none !important;
+  border-top: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  background: var(--fl-bg-soft) !important;
+}
+
+/* --- Productos (móvil) --- */
+.page-order-detail .order-items {
+  padding: 0 !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  overflow: hidden;
+}
+
+.page-order-detail .order-items .order-item {
+  padding: 14px 16px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+}
+
+.page-order-detail .order-items .order-item:last-child {
+  border-bottom: none !important;
+}
+
+.page-order-detail .order-items .order-item .name {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+.page-order-detail .order-items .order-item .ref {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* Totales móvil */
+.page-order-detail .order-totals {
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 12px 16px !important;
+  background: var(--fl-bg-soft) !important;
+}
+
+/* --- Mensajes del pedido --- */
+.page-order-detail h3 {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+}
+
+.page-order-detail .messages .message {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  font-size: 13px !important;
+  color: var(--fl-text) !important;
+}
+
+.page-order-detail .messages .message:last-child {
+  border-bottom: none !important;
+}
+
+/* =============================================================
    D. RESPONSIVE
    ============================================================= */
 @media (max-width: 991px) {
@@ -1186,6 +1485,25 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   #history .orders_history {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 12px !important;
+  }
+
+  /* Detalle pedido — acciones en columna */
+  #order-detail .order_actions .oactions {
+    flex-direction: column !important;
+  }
+
+  #order-detail .order_actions .oactions .oaction {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  #order-detail .order_info {
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  #order-detail .order_info .state {
+    margin-left: 0 !important;
   }
 }
 
