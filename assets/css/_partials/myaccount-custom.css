@@ -586,9 +586,9 @@ body#my-account .contact_block.standard_card {
 
 body#my-account .contact_block .title_block_dashboard {
   padding: 24px 24px 14px !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 4px !important;
   border-bottom: none !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
 }
 
 body#my-account .contact_block .form-fields h3 {
@@ -600,19 +600,19 @@ body#my-account .contact_block .container_contact_form_account {
 }
 
 body#my-account .contact_block .form-group.row {
-  margin-bottom: 16px !important;
+  margin-bottom: 12px !important;
   padding: 0 !important;
 }
 
 body#my-account .contact_block .form-group label,
 body#my-account .contact_block .form-control-label {
   display: block !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.04em !important;
   color: var(--fl-text-muted) !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 4px !important;
 }
 
 body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column select.form-control,
@@ -759,7 +759,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   margin-bottom: 24px !important;
 }
 
-/* Lista de pedidos — lista vertical limpia */
+/* Contenedor de pedidos — tabla visual */
 #history .orders_history {
   display: flex !important;
   flex-direction: column !important;
@@ -767,22 +767,21 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   border: 1px solid var(--fl-border) !important;
   border-radius: var(--fl-radius) !important;
   overflow: hidden !important;
+  background: #fff !important;
 }
 
-/* Card de pedido — fila horizontal */
+/* Cada pedido — fila con estructura de tabla */
 #history .order_history {
   background: #fff !important;
   border: none !important;
   border-bottom: 1px solid var(--fl-border) !important;
   border-radius: 0 !important;
-  padding: 20px 24px !important;
+  padding: 0 !important;
   margin-bottom: 0 !important;
   box-shadow: none !important;
-  display: flex !important;
-  flex-direction: row !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
   align-items: center !important;
-  justify-content: space-between !important;
-  gap: 24px !important;
   transition: background-color 0.12s ease;
 }
 
@@ -794,28 +793,29 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   background: var(--fl-bg-soft) !important;
 }
 
-/* Info del pedido — en fila horizontal */
+/* Info — grid de 4 columnas con anchos proporcionados */
 #history .order_history .history_info {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  gap: 24px !important;
+  display: grid !important;
+  grid-template-columns: 2fr 1.2fr 1fr 1.2fr !important;
+  gap: 0 !important;
   margin-bottom: 0 !important;
-  flex: 1 !important;
   align-items: center !important;
+  padding: 16px 0 16px 24px !important;
 }
 
 #history .order_history .history_info .item {
   display: flex !important;
   flex-direction: column !important;
-  gap: 2px !important;
-  min-width: 0 !important;
+  gap: 1px !important;
+  padding: 0 16px 0 0 !important;
 }
 
 #history .order_history .history_info .item.item_status {
   margin-top: 0 !important;
   padding-top: 0 !important;
   border-top: none !important;
+  border-left: 1px solid var(--fl-border) !important;
+  padding-left: 16px !important;
 }
 
 #history .order_history .history_info .title {
@@ -826,6 +826,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   color: var(--fl-text-muted) !important;
   margin-bottom: 0 !important;
   white-space: nowrap !important;
+  line-height: 1.2 !important;
 }
 
 #history .order_history .history_info .value {
@@ -833,40 +834,42 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   font-weight: 500 !important;
   color: var(--fl-text) !important;
   white-space: nowrap !important;
+  line-height: 1.4 !important;
 }
 
-/* Estado con bola de color (color viene del style="" del servidor) */
+/* Bola de color en estado */
 #history .order_history .history_info .item_status .value::before {
   content: '';
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   margin-right: 6px;
   vertical-align: middle;
   background-color: currentColor;
 }
 
-/* Botones — compactos a la derecha */
+/* Botones — a la derecha, compactos */
 #history .order_history .history_buttons {
   display: flex !important;
   flex-wrap: nowrap !important;
-  gap: 8px !important;
+  gap: 6px !important;
   border: none !important;
   border-radius: 0 !important;
-  padding: 0 !important;
+  padding: 16px 24px 16px 16px !important;
   margin: 0 !important;
   flex-shrink: 0 !important;
   align-items: center !important;
+  border-left: 1px solid var(--fl-border) !important;
 }
 
 #history .order_history .history_buttons > a {
-  padding: 8px 14px !important;
+  padding: 7px 14px !important;
   font-size: 12px !important;
   font-weight: 500 !important;
   text-align: center !important;
   text-decoration: none !important;
-  border-radius: 6px !important;
+  border-radius: 5px !important;
   border: 1px solid var(--fl-border-hard) !important;
   color: var(--fl-text) !important;
   background: #fff !important;
@@ -875,7 +878,7 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
   white-space: nowrap !important;
 }
 
-/* Primer botón "Detalles" — primario rojo */
+/* "Detalles" — primario rojo */
 #history .order_history .history_buttons > a:first-child {
   background-color: var(--fl-red) !important;
   color: #fff !important;
@@ -884,28 +887,21 @@ body#my-account .contact_block .form-footer .btn-primary:hover {
 
 #history .order_history .history_buttons > a:first-child:hover {
   background-color: #a50628 !important;
-  border-color: #a50628 !important;
 }
 
-/* Segundo botón "Pedir de nuevo" — secundario gris */
-#history .order_history .history_buttons > a:nth-child(2) {
-  background-color: var(--fl-bg-soft) !important;
-  color: var(--fl-text) !important;
-  border-color: var(--fl-border-hard) !important;
-}
-
+/* "Pedir de nuevo" — secundario */
 #history .order_history .history_buttons > a:nth-child(2):hover {
-  background-color: var(--fl-border) !important;
+  border-color: var(--fl-text-muted) !important;
 }
 
-/* Último botón "Reportar incidencia" — link sutil */
+/* "Reportar incidencia" — link sutil */
 #history .order_history .history_buttons > a:last-child {
   background: transparent !important;
   border: none !important;
   color: var(--fl-text-muted) !important;
   font-size: 11px !important;
   text-decoration: underline !important;
-  padding: 8px 4px !important;
+  padding: 7px 4px !important;
 }
 
 #history .order_history .history_buttons > a:last-child:hover {
@@ -991,17 +987,45 @@ body#my-account .header_dashboard h1 {
   box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
 }
 
-/* Floating labels — ajustar proporción (módulo ecomm) */
+/* Floating labels — proporción corregida */
 .page-customer-account .js-input-column label,
-.page-customer-account .inp label {
-  font-size: 12px !important;
+.page-customer-account .inp label,
+.page-customer-account .form-group .col-md-6 label {
+  font-size: 11px !important;
   color: var(--fl-text-muted) !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Valor del input — proporcionado con el label */
+.page-customer-account #customer-form .form-control,
+.page-customer-account #customer-form input,
+body#identity .form-control,
+body#identity input[type="text"],
+body#identity input[type="email"],
+body#identity input[type="password"],
+body#address .form-control,
+body#address input,
+body#address select {
+  font-size: 14px !important;
+  padding: 12px 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* Campo de contraseña con fondo azulado — normalizar */
+body#identity input[type="password"] {
+  background-color: #fff !important;
 }
 
 /* Barra de fortaleza de contraseña */
 .page-customer-account .field-password-policy .progress-bar {
   border-radius: 4px !important;
+}
+
+.page-customer-account .field-password-policy .password-strength-text,
+.page-customer-account .field-password-policy p {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
 }
 
 /* Texto de ayuda bajo los campos */
@@ -1566,6 +1590,188 @@ body .page-customer-account .alert-info,
 }
 
 /* =============================================================
+   C6. PRODUCTOS COMPRADOS (ecommproductshistory)
+   ============================================================= */
+
+/* Contenedor */
+.ecommproductshistory {
+  font-size: 14px !important;
+}
+
+.ecommproductshistory .page-header h1 {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  margin-bottom: 20px !important;
+}
+
+/* Cada producto — fila limpia */
+.ecommproductshistory #products-content .row.product {
+  display: flex !important;
+  align-items: center !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
+  margin: 0 !important;
+}
+
+.ecommproductshistory #products-content .row.product:last-of-type {
+  border-bottom: none !important;
+}
+
+/* Imagen */
+.ecommproductshistory .img-container img {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--fl-border, #ECECEC) !important;
+}
+
+/* Nombre del producto */
+.ecommproductshistory .prop-container .prop-name {
+  margin-bottom: 4px !important;
+}
+
+.ecommproductshistory .prop-container .prop-name a {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  text-decoration: none !important;
+}
+
+.ecommproductshistory .prop-container .prop-name a:hover {
+  color: var(--fl-red, #C40731) !important;
+}
+
+/* Cantidad */
+.ecommproductshistory .prop-container .prop-qty {
+  font-size: 12px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  margin: 0 !important;
+}
+
+/* Precio */
+.ecommproductshistory .add-container p strong {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+}
+
+/* Botón añadir al carrito */
+.ecommproductshistory .add-to-cart {
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 6px !important;
+}
+
+/* Cantidad input */
+.ecommproductshistory .qty input {
+  width: 50px !important;
+  text-align: center !important;
+  border: 1px solid var(--fl-border-hard, #D9D9D9) !important;
+  border-radius: 4px !important;
+  padding: 6px !important;
+  font-size: 14px !important;
+}
+
+/* Paginación */
+.ecommproductshistory #products-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  padding: 20px 0 !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+}
+
+.ecommproductshistory #products-pagination a {
+  color: var(--fl-red, #C40731) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.ecommproductshistory #products-pagination a.disabled {
+  color: var(--fl-border-hard, #D9D9D9) !important;
+  pointer-events: none !important;
+}
+
+/* =============================================================
+   C7. CARRITOS GUARDADOS (awsavecart)
+   ============================================================= */
+
+/* Título */
+#content .page-heading,
+body[id*="savedcart"] h1,
+body[id*="savedcart"] .page-heading {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  margin-bottom: 8px !important;
+}
+
+/* Subtítulo info */
+body[id*="savedcart"] .info-title,
+#content .info-title {
+  font-size: 14px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  margin-bottom: 20px !important;
+}
+
+/* Tabla de carritos */
+#saved-carts,
+table.footab {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid var(--fl-border, #ECECEC) !important;
+  border-radius: var(--fl-radius, 8px) !important;
+  overflow: hidden !important;
+}
+
+#saved-carts thead th,
+table.footab thead th {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+}
+
+#saved-carts tbody td,
+table.footab tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  vertical-align: middle !important;
+}
+
+#saved-carts tbody tr:last-child td,
+table.footab tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Botones CARGAR / BORRAR */
+#saved-carts .btn,
+table.footab .btn {
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+/* =============================================================
    D. RESPONSIVE
    ============================================================= */
 @media (max-width: 991px) {
@@ -1643,25 +1849,39 @@ body .page-customer-account .alert-info,
     border-top: 1px solid var(--fl-border) !important;
   }
 
-  /* Historial — filas en vertical en tablet */
+  /* Historial — layout vertical en tablet */
   #history .order_history {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
+    grid-template-columns: 1fr !important;
   }
 
   #history .order_history .history_info {
-    flex-wrap: wrap !important;
+    grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
+    padding: 16px !important;
+  }
+
+  #history .order_history .history_info .item.item_status {
+    border-left: none !important;
+    padding-left: 0 !important;
   }
 
   #history .order_history .history_buttons {
+    border-left: none !important;
+    border-top: 1px solid var(--fl-border) !important;
+    padding: 12px 16px !important;
     width: 100% !important;
     flex-wrap: wrap !important;
   }
 
   #history .order_history .history_buttons > a {
     flex: 1 !important;
+  }
+
+  /* Productos comprados — stack vertical */
+  .ecommproductshistory .add-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
   }
 
   /* Detalle pedido — acciones en columna */
