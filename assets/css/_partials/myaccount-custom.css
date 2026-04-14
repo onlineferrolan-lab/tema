@@ -766,12 +766,13 @@ body#history #content-wrapper {
   margin-bottom: 24px !important;
 }
 
-/* Contenedor de pedidos — columna única, sin padding interno */
+/* Contenedor de pedidos — columna única, filas full width */
 #history .orders_history,
 body#history .orders_history {
   display: flex !important;
   flex-direction: column !important;
   flex-wrap: nowrap !important;
+  align-items: stretch !important;
   border: 1px solid var(--fl-border) !important;
   border-radius: var(--fl-radius) !important;
   overflow: hidden !important;
