@@ -178,6 +178,65 @@
 }
 
 /* =============================================================
+   A2b. POPUP LATERAL DE CUENTA (header, todas las páginas)
+   ============================================================= */
+
+/* Ocultar iconos del popup lateral */
+.myaccountlateral .modal_item .item i,
+.myaccountlateral .modal_item .item [class^="icon-"],
+.myaccountlateral .modal_item .item [class*=" icon-"],
+.myaccountlateral .modal_item .item .material-icons {
+  display: none !important;
+}
+
+/* Items del popup */
+.myaccountlateral .modal_item .item {
+  display: block !important;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  text-decoration: none !important;
+  border-left: 2px solid transparent !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.myaccountlateral .modal_item .item:hover {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+  color: var(--fl-red, #C40731) !important;
+  border-left-color: var(--fl-border-hard, #D9D9D9) !important;
+}
+
+/* Títulos de grupo del popup */
+.myaccountlateral .modal_item > .title {
+  display: block !important;
+  padding: 12px 20px 4px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+}
+
+/* Botón "Salir" */
+.myaccountlateral a.close_session {
+  display: block !important;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  text-decoration: none !important;
+  border-left: 2px solid transparent !important;
+}
+
+.myaccountlateral a.close_session i {
+  display: none !important;
+}
+
+.myaccountlateral a.close_session:hover {
+  color: var(--fl-red, #C40731) !important;
+}
+
+/* =============================================================
    A3. SIDEBAR — NAVEGACIÓN MÓVIL (todas las páginas)
    ============================================================= */
 .navigation_mobile {
