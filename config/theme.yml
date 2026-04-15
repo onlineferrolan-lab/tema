@@ -111,136 +111,76 @@ assets:
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: my-account-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     authentication:
       - id: authentication
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: authentication-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     password:
       - id: password
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: password-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     identity:
       - id: identity
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: identity-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     address:
       - id: address
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: address-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     addresses:
       - id: addresses
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: addresses-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     history:
       - id: history
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: history-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     order-slip:
       - id: order-slip
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: order-slip-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     order-detail:
       - id: order-detail
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: order-detail-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     discount:
       - id: discount
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: discount-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     module-ps_emailalerts-account:
       - id: module-ps_emailalerts-account
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: module-ps_emailalerts-account-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     module-psgdpr-gdpr:
       - id: module-psgdpr-gdpr
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: module-psgdpr-gdpr-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     module-prestasmartwishlist-simplelisting:
       - id: module-prestasmartwishlist-simplelisting
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: module-prestasmartwishlist-simplelisting-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     module-ecommproductshistory-myaccount:
       - id: module-ecommproductshistory-myaccount
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: module-ecommproductshistory-myaccount-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     savedcarts:
       - id: savedcarts
         path: assets/css/_partials/myaccount.css
         media: all
         priority: 400
-      - id: savedcarts-custom
-        path: assets/css/_partials/myaccount-custom.css
-        media: all
-        priority: 401
     pagenotfound:
       - id: pagenotfound
         path: assets/css/_partials/pagenotfound.css
