@@ -1,79 +1,53 @@
-.cbp-spmenu-vertical a {
-  border-bottom: none !important;
-}
-/* ==========================================================================
-   FERROLAN — Lavado de cara "Mi Cuenta"  (v2 — especificidad reforzada)
-   --------------------------------------------------------------------------
-   Cambio respecto a v1: todos los selectores prefijados con body#my-account
-   en lugar de solo #my-account, para ganar a las reglas del tema que usan
-   selectores tipo body:not(#index) main section#wrapper ...
-   --------------------------------------------------------------------------
-   Cómo aplicar:
-   1) Backup de custom.css actual.
-   2) BORRAR del custom.css todo el bloque v1 anterior (desde el comentario
-      "FERROLAN — Lavado de cara Mi Cuenta" hasta el final del archivo).
-   3) Pegar este bloque entero al final.
-   4) Parámetros avanzados > Rendimiento > CCC: apagar Smart cache CSS,
-      Guardar, encender, Guardar.
-   5) Hard refresh (Ctrl+F5).
-   ========================================================================== */
+/* =============================================================
+   FERROLAN — Mi Cuenta: Rediseño Custom
+   Theme: ferrolan v1.1.0 (child de ecommbase)
+   Autor: Ferrolan (sobre diseño de Ecomm Sistema)
+   Fecha inicio: 2026-04-13
 
-body#my-account {
-  --fl-red:          #C40731;
-  --fl-red-soft:     rgba(196, 7, 49, 0.08);
-  --fl-text:         #2D2D2D;
-  --fl-text-muted:   #6C757D;
-  --fl-border:       #ECECEC;
-  --fl-border-hard:  #D9D9D9;
-  --fl-bg:           #FFFFFF;
-  --fl-bg-soft:      #FAFAFA;
-  --fl-radius:       8px;
-}
+   Este archivo sobreescribe estilos de myaccount.css y del módulo
+   ecommmyaccount (dashboard custom). Se carga con priority 401.
+   NO editar myaccount.css — todo override va aquí.
 
-/* --------------------------------------------------------------------------
-   Layout general y cabecera
-   -------------------------------------------------------------------------- */
-body#my-account .container_dashboard,
-body#my-account .page-content,
-body#my-account .dashboard_account {
-  background: var(--fl-bg) !important;
+   Estructura:
+   - Sección A: Estilos COMUNES a todas las páginas de Mi Cuenta
+     (sidebar, contacto, variables). Selector: .page-customer-account
+   - Sección B: Dashboard (body#my-account)
+   - Sección C: Historial de pedidos (body#history)
+   - Sección D: Responsive
+   ============================================================= */
+
+/* =============================================================
+   A. VARIABLES — Comunes a todas las páginas de cuenta
+   ============================================================= */
+.page-customer-account,
+.dashboard_account {
+  --fl-red: #C40731;
+  --fl-red-soft: rgba(196, 7, 49, 0.08);
+  --fl-text: #2D2D2D;
+  --fl-text-muted: #6C757D;
+  --fl-border: #ECECEC;
+  --fl-border-hard: #D9D9D9;
+  --fl-bg: #FFFFFF;
+  --fl-bg-soft: #FAFAFA;
+  --fl-radius: 8px;
 }
 
-body#my-account .header_dashboard h1,
-body#my-account .header_dashboard .page-title,
-body#my-account h1.page-heading,
-body#my-account .title_block {
-  font-weight: 500 !important;
-  letter-spacing: -0.01em;
-  color: var(--fl-text);
-}
+/* =============================================================
+   A1. SIDEBAR — MENÚ LATERAL DESKTOP (todas las páginas)
+   ============================================================= */
 
-body#my-account .header_dashboard .h6,
-body#my-account .header_dashboard h2 {
-  font-weight: 400;
-  color: var(--fl-text-muted);
-  font-size: 15px;
-}
-
-/* --------------------------------------------------------------------------
-   Menú lateral — minimalista, sin iconos
-   -------------------------------------------------------------------------- */
-body#my-account #left-column.dashboardaccount {
-  background: var(--fl-bg) !important;
-  border-right: 1px solid var(--fl-border);
-  box-shadow: none !important;
-}
-
-/* Ocultar TODOS los iconos del menú lateral */
-body#my-account .navigation_account .item i,
-body#my-account .navigation_account .item svg,
-body#my-account .navigation_account .item img,
-body#my-account .navigation_account .item [class^="icon-"],
-body#my-account .navigation_account .item [class*=" icon-"] {
+/* Ocultar TODOS los iconos del menú */
+.navigation_account .item i,
+.navigation_account .item svg,
+.navigation_account .item img,
+.navigation_account .item [class^="icon-"],
+.navigation_account .item [class*=" icon-"],
+.navigation_account .item .material-icons {
   display: none !important;
 }
 
-body#my-account .navigation_account .item {
+/* Items del menú */
+.navigation_account .item {
   display: flex !important;
   align-items: center;
   padding: 12px 20px !important;
@@ -89,73 +63,283 @@ body#my-account .navigation_account .item {
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-body#my-account .navigation_account .item:hover {
+/* Hover */
+.navigation_account .item:hover {
   background: var(--fl-bg-soft) !important;
   color: var(--fl-red) !important;
   border-left-color: var(--fl-border-hard) !important;
 }
 
-body#my-account .navigation_account .item.active,
-body#my-account .navigation_account .item.current,
-body#my-account .navigation_account .item[aria-current="page"] {
+/* Activo */
+.navigation_account .item.active,
+.navigation_account .item.current,
+.navigation_account .item[aria-current="page"] {
   background: var(--fl-red-soft) !important;
   color: var(--fl-red) !important;
   font-weight: 500 !important;
   border-left-color: var(--fl-red) !important;
 }
 
-/* --------------------------------------------------------------------------
-   Bloque "Necesitas ayuda? — CONTACTO"
-   -------------------------------------------------------------------------- */
-body#my-account .contact_help {
-  margin-top: 28px !important;
-  padding: 20px !important;
-  background: var(--fl-bg-soft) !important;
+/* Títulos de grupo del sidebar */
+.navigation_account .title {
+  display: block;
+  padding: 12px 16px 4px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px;
+  color: var(--fl-text-muted) !important;
+}
+
+/* Contenedor sidebar */
+.navigation_account {
+  background-color: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 0 !important;
+  margin-bottom: 12px !important;
+  overflow: hidden;
+}
+
+/* Sidebar del dashboard (módulo ecommmyaccount) */
+.dashboardaccount {
+  background: var(--fl-bg) !important;
+  border-right: 1px solid var(--fl-border) !important;
+  box-shadow: none !important;
+}
+
+/* Logo del sidebar más pequeño */
+.dashboardaccount .container_logo_dashboard img.logo {
+  max-width: 140px !important;
+  height: auto !important;
+}
+
+.dashboardaccount .container_logo_dashboard {
+  padding: 16px 20px 8px !important;
+}
+
+/* =============================================================
+   A2. SIDEBAR — BLOQUE "NECESITAS AYUDA?" (todas las páginas)
+   ============================================================= */
+.contact_help {
+  position: relative !important;
+  margin-top: 24px !important;
+  padding: 24px 20px !important;
+  background: linear-gradient(135deg, #FAFAFA 0%, #fff 100%) !important;
   border: 1px solid var(--fl-border) !important;
   border-radius: var(--fl-radius) !important;
   box-shadow: none !important;
-  text-align: left !important;
+  text-align: center !important;
+  overflow: hidden !important;
 }
 
-body#my-account .contact_help i,
-body#my-account .contact_help svg,
-body#my-account .contact_help img {
+/* Línea decorativa roja arriba */
+.contact_help::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: var(--fl-red, #C40731);
+  border-radius: 0 0 3px 3px;
+}
+
+/* Eliminar fondo ondulado del módulo */
+.contact_help .background_contact {
   display: none !important;
 }
 
-body#my-account .contact_help > span,
-body#my-account .contact_help p {
-  display: block;
-  font-size: 13px !important;
-  color: var(--fl-text-muted) !important;
-  margin-bottom: 12px !important;
+.contact_help .info_contact {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 16px !important;
 }
 
-body#my-account .contact_help a,
-body#my-account .contact_help .btn {
+/* Ocultar icono original */
+.contact_help .info_contact i,
+.contact_help .info_contact svg,
+.contact_help .info_contact [class^="icon-"] {
+  display: none !important;
+}
+
+/* Texto */
+.contact_help .info_contact > span {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+  line-height: 1.3 !important;
+}
+
+/* Subtexto debajo (si existe) */
+.contact_help .info_contact > p,
+.contact_help .info_contact > span + span {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: var(--fl-text-muted) !important;
+  margin: -8px 0 0 !important;
+}
+
+/* Botón CONTACTO — triple especificidad */
+#left-column .contact_help a.conctact_link.btn-primary,
+.contact_help a.conctact_link.btn-primary,
+.contact_help a.conctact_link {
   display: block !important;
-  padding: 11px 16px !important;
-  background: var(--fl-red) !important;
+  width: 100% !important;
+  padding: 10px 16px !important;
+  background-color: var(--fl-red) !important;
   color: #fff !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.04em;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
   text-align: center !important;
   text-decoration: none !important;
-  border: 0 !important;
+  border: none !important;
   border-radius: 6px !important;
-  transition: opacity 0.15s ease;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transition: background-color 0.15s ease;
 }
 
-body#my-account .contact_help a:hover,
-body#my-account .contact_help .btn:hover {
-  opacity: 0.88;
-  color: #fff !important;
+.contact_help a.conctact_link:hover {
+  background-color: #a50628 !important;
 }
 
-/* --------------------------------------------------------------------------
-   Tarjetas de contenido (Promos, Últimos pedidos, Mis favoritos, etc.)
-   -------------------------------------------------------------------------- */
+/* =============================================================
+   A2b. POPUP LATERAL DE CUENTA (header, todas las páginas)
+   ============================================================= */
+
+/* Ocultar iconos del popup lateral */
+.myaccountlateral .modal_item .item i,
+.myaccountlateral .modal_item .item [class^="icon-"],
+.myaccountlateral .modal_item .item [class*=" icon-"],
+.myaccountlateral .modal_item .item .material-icons {
+  display: none !important;
+}
+
+/* Items del popup */
+.myaccountlateral .modal_item .item {
+  display: block !important;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  text-decoration: none !important;
+  border-left: 2px solid transparent !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.myaccountlateral .modal_item .item:hover {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+  color: var(--fl-red, #C40731) !important;
+  border-left-color: var(--fl-border-hard, #D9D9D9) !important;
+}
+
+/* Títulos de grupo del popup */
+.myaccountlateral .modal_item > .title {
+  display: block !important;
+  padding: 12px 20px 4px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+}
+
+/* Botón "Salir" */
+.myaccountlateral a.close_session {
+  display: block !important;
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  text-decoration: none !important;
+  border-left: 2px solid transparent !important;
+}
+
+.myaccountlateral a.close_session i {
+  display: none !important;
+}
+
+.myaccountlateral a.close_session:hover {
+  color: var(--fl-red, #C40731) !important;
+}
+
+/* =============================================================
+   A3. SIDEBAR — NAVEGACIÓN MÓVIL (todas las páginas)
+   ============================================================= */
+.navigation_mobile {
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  background-color: #fff !important;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.navigation_mobile .btn-link {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fl-text);
+  text-decoration: none;
+}
+
+.navigation_mobile .card-body {
+  border-top: 1px solid var(--fl-border);
+  padding: 4px 0;
+}
+
+.navigation_mobile .card-body > * {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: var(--fl-text);
+}
+
+.navigation_mobile .card-body .item i,
+.navigation_mobile .card-body .item .material-icons {
+  display: none !important;
+}
+
+.navigation_mobile .card-body .item.active {
+  border-left: 3px solid var(--fl-red);
+  background-color: var(--fl-red-soft);
+  font-weight: 600;
+  color: var(--fl-red);
+}
+
+.navigation_mobile .card-body .item:hover {
+  background-color: var(--fl-bg-soft);
+}
+
+/* =============================================================
+   B. DASHBOARD (body#my-account)
+   ============================================================= */
+
+/* Layout general */
+body#my-account .container_dashboard,
+body#my-account .page-content,
+body#my-account .dashboard_account {
+  background: var(--fl-bg) !important;
+}
+
+body#my-account .header_dashboard h1,
+body#my-account .header_dashboard .page-title {
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+  color: var(--fl-text);
+}
+
+body#my-account .header_dashboard .h6,
+body#my-account .header_dashboard h2 {
+  font-weight: 400;
+  color: var(--fl-text-muted);
+  font-size: 15px;
+}
+
+/* Tarjetas de contenido */
 body#my-account .standard_card {
   background: var(--fl-bg) !important;
   border: 1px solid var(--fl-border) !important;
@@ -177,6 +361,7 @@ body#my-account .title_block_dashboard {
   text-transform: none !important;
 }
 
+/* Empty states */
 body#my-account .default_message_no {
   display: block !important;
   margin: 0 !important;
@@ -190,148 +375,328 @@ body#my-account .default_message_no {
   text-align: center !important;
 }
 
-/* --------------------------------------------------------------------------
-   Tabla de pedidos — limpia, sin bordes verticales
-   -------------------------------------------------------------------------- */
-body#my-account .last_orders table,
-body#my-account #history table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  border: 0 !important;
-  background: transparent !important;
+/* --- Últimos pedidos (dashboard) --- */
+body#my-account .last_orders.standard_card {
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative !important;
 }
 
-body#my-account .last_orders thead th,
-body#my-account #history thead th {
-  background: transparent !important;
-  border: 0 !important;
-  border-bottom: 1px solid var(--fl-border) !important;
-  padding: 10px 16px !important;
-  font-size: 11px !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.06em !important;
-  color: var(--fl-text-muted) !important;
-  text-align: left !important;
+body#my-account .last_orders .title_block_dashboard {
+  padding: 20px 24px 14px !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
 }
 
-body#my-account .last_orders tbody td,
-body#my-account #history tbody td {
-  border: 0 !important;
-  border-bottom: 1px solid var(--fl-border) !important;
-  padding: 18px 16px !important;
-  font-size: 14px !important;
-  line-height: 1.5 !important;
-  color: var(--fl-text) !important;
-  vertical-align: top !important;
-  background: transparent !important;
-}
-
-body#my-account .last_orders tbody tr:last-child td,
-body#my-account #history tbody tr:last-child td {
-  border-bottom: 0 !important;
-}
-
-body#my-account .last_orders tbody tr:hover td,
-body#my-account #history tbody tr:hover td {
-  background: var(--fl-bg-soft) !important;
-}
-
-/* Enlace "Ver todos los pedidos" */
-body#my-account .last_orders a[href*="historial"],
-body#my-account .last_orders .see_all,
-body#my-account .header_dashboard a[href*="historial"] {
+body#my-account .last_orders a.all_orders {
+  position: absolute !important;
+  top: 18px !important;
+  right: 24px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: none !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   color: var(--fl-red) !important;
   text-decoration: none !important;
+  background: transparent !important;
 }
-body#my-account .last_orders a[href*="historial"]:hover,
-body#my-account .header_dashboard a[href*="historial"]:hover {
+
+body#my-account .last_orders a.all_orders:hover {
   text-decoration: underline !important;
+  background: transparent !important;
 }
 
-/* --------------------------------------------------------------------------
-   Formularios — Información personal + Contacto
-   -------------------------------------------------------------------------- */
-body#my-account .form-group,
-body#my-account .form-control-valign {
-  margin-bottom: 18px !important;
+body#my-account .last_orders .order_header {
+  display: flex !important;
+  background: var(--fl-bg-soft) !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  border-top: 1px solid var(--fl-border) !important;
+  padding: 0 !important;
 }
 
-body#my-account label,
-body#my-account .form-control-label {
-  display: block !important;
+body#my-account .last_orders .order_header > span {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--fl-text-muted) !important;
+  padding: 10px 24px !important;
+}
+
+body#my-account .last_orders .order_info {
+  display: flex !important;
+  align-items: flex-start !important;
+  padding: 16px 24px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  background: #fff !important;
+  transition: background-color 0.12s ease;
+}
+
+body#my-account .last_orders .order_info:last-of-type {
+  border-bottom: none !important;
+}
+
+body#my-account .last_orders .order_info:nth-child(odd),
+body#my-account .last_orders .order_info:nth-child(even) {
+  background: #fff !important;
+}
+
+body#my-account .last_orders .order_info:hover {
+  background: var(--fl-bg-soft) !important;
+}
+
+body#my-account .last_orders .order_info > span {
+  font-size: 13px !important;
+  color: var(--fl-text) !important;
+  line-height: 1.5 !important;
+}
+
+body#my-account .last_orders .order_info .ref_order strong {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+body#my-account .last_orders .order_info .show_products_order {
+  width: 16px !important;
+  height: 16px !important;
+  margin-left: 6px !important;
+  opacity: 0.5;
+  vertical-align: middle;
+}
+
+body#my-account .last_orders .order_info:hover .show_products_order {
+  opacity: 0.8;
+}
+
+/* Dirección — visible completa, texto compacto */
+body#my-account .last_orders .order_info > span:nth-child(2) {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.5 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+body#my-account .last_orders .order_info > span:nth-child(2) br {
+  display: inline !important;
+}
+
+body#my-account .last_orders .order_info > span:nth-child(2) br::after {
+  content: ' \00B7  ';
+  font-size: 10px;
+  color: var(--fl-border-hard);
+}
+
+body#my-account .last_orders .order_info > span .label_mobile {
+  display: none !important;
+}
+
+/* Estado con bola de color */
+body#my-account .last_orders .order_info > span:nth-child(3) {
   font-size: 13px !important;
   font-weight: 500 !important;
-  color: var(--fl-text) !important;
-  margin-bottom: 6px !important;
 }
 
-body#my-account .form-control,
-body#my-account input[type="text"],
-body#my-account input[type="email"],
-body#my-account input[type="password"],
-body#my-account input[type="tel"],
-body#my-account input[type="number"],
-body#my-account select,
-body#my-account textarea {
+body#my-account .last_orders .order_info > span:nth-child(3)::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+  background-color: var(--fl-text-muted);
+}
+
+body#my-account .last_orders .order_info > span[data-status="cancelado"]::before {
+  background-color: #DC3545;
+}
+body#my-account .last_orders .order_info > span[data-status="entregado"]::before {
+  background-color: #28A745;
+}
+body#my-account .last_orders .order_info > span[data-status="enviado"]::before,
+body#my-account .last_orders .order_info > span[data-status="en tránsito"]::before {
+  background-color: #FFC107;
+}
+body#my-account .last_orders .order_info > span[data-status="preparación en curso"]::before,
+body#my-account .last_orders .order_info > span[data-status="en preparación"]::before {
+  background-color: #17A2B8;
+}
+body#my-account .last_orders .order_info > span[data-status="pendiente de pago"]::before,
+body#my-account .last_orders .order_info > span[data-status="pago aceptado"]::before {
+  background-color: #FD7E14;
+}
+body#my-account .last_orders .order_info > span[data-status="reembolsado"]::before {
+  background-color: #6F42C1;
+}
+body#my-account .last_orders .order_info > span[data-status="error en pago"]::before {
+  background-color: #DC3545;
+}
+
+/* Acción */
+body#my-account .last_orders .order_info > span:nth-child(4) {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* Productos expandidos */
+body#my-account .container_products_from_order {
   width: 100% !important;
-  padding: 12px 14px !important;
-  font-size: 14px !important;
-  line-height: 1.4 !important;
+  padding: 12px 0 4px !important;
+  margin-top: 12px;
+  border-top: 1px dashed var(--fl-border) !important;
+}
+
+body#my-account .container_product_order {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px;
+  padding: 6px 0 !important;
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+body#my-account .container_product_order img.product_img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover;
+  border-radius: 4px !important;
+  border: 1px solid var(--fl-border) !important;
+}
+
+body#my-account .info_product_order strong {
+  font-size: 12px !important;
+  font-weight: 600 !important;
   color: var(--fl-text) !important;
-  background: var(--fl-bg) !important;
+}
+
+body#my-account .info_product_order span {
+  font-size: 11px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* --- Formulario de contacto (dashboard) --- */
+body#my-account .contact_block.standard_card {
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-top: 3px solid var(--fl-red) !important;
+}
+
+body#my-account .contact_block .title_block_dashboard {
+  padding: 24px 24px 14px !important;
+  margin-bottom: 4px !important;
+  border-bottom: none !important;
+  font-size: 16px !important;
+}
+
+body#my-account .contact_block .form-fields h3 {
+  display: none !important;
+}
+
+body#my-account .contact_block .container_contact_form_account {
+  padding: 0 24px 24px !important;
+}
+
+body#my-account .contact_block .form-group.row {
+  margin-bottom: 12px !important;
+  padding: 0 !important;
+}
+
+body#my-account .contact_block .form-group label,
+body#my-account .contact_block .form-control-label {
+  display: block !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 4px !important;
+}
+
+body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column select.form-control,
+body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column input.form-control,
+body#my-account .contact_block .contact-form .form-fields .form-group .sub-form-group .js-input-column textarea.form-control,
+body#my-account .contact_block .form-control.form-control-select,
+body#my-account .contact_block select.form-control,
+body#my-account .contact_block input.form-control,
+body#my-account .contact_block textarea.form-control,
+body#my-account .contact_block .js-input-column select,
+body#my-account .contact_block .js-input-column input,
+body#my-account .contact_block .js-input-column textarea {
+  width: 100% !important;
+  padding: 11px 14px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  background-color: #fff !important;
   border: 1px solid var(--fl-border-hard) !important;
   border-radius: 6px !important;
   box-shadow: none !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
-body#my-account .form-control:focus,
-body#my-account input:focus,
-body#my-account select:focus,
-body#my-account textarea:focus {
-  outline: none !important;
+body#my-account .contact_block .form-control:focus,
+body#my-account .contact_block select:focus,
+body#my-account .contact_block input:focus,
+body#my-account .contact_block textarea:focus {
   border-color: var(--fl-red) !important;
   box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
+  outline: none !important;
 }
 
-body#my-account textarea,
-body#my-account .form-control[rows] {
-  min-height: 140px !important;
-  resize: vertical !important;
-}
-
-/* Select con flecha custom */
-body#my-account select {
+body#my-account .contact_block select.form-control,
+body#my-account .contact_block select {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%236c757d' d='M6 8L1 3h10z'/></svg>") !important;
   background-repeat: no-repeat !important;
   background-position: right 14px center !important;
-  background-size: 10px 10px !important;
+  background-size: 10px !important;
   padding-right: 36px !important;
 }
 
-/* Botón "Seleccionar archivo" del formulario de contacto */
-body#my-account .custom-file-label,
-body#my-account .btn-file,
-body#my-account label[for*="file"] {
-  display: inline-block !important;
-  padding: 9px 14px !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: var(--fl-text) !important;
-  background: var(--fl-bg) !important;
-  border: 1px solid var(--fl-border-hard) !important;
-  border-radius: 6px !important;
-  cursor: pointer !important;
+body#my-account .contact_block textarea.form-control,
+body#my-account .contact_block textarea {
+  min-height: 120px !important;
+  resize: vertical !important;
 }
 
-/* Checkboxes (términos y condiciones, etc.) */
-body#my-account input[type="checkbox"],
-body#my-account input[type="radio"] {
+body#my-account .contact_block .bootstrap-filestyle .btn-default,
+body#my-account .contact_block .bootstrap-filestyle label.btn,
+body#my-account .contact_block .attachment_box label {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 9px 16px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  color: var(--fl-text) !important;
+  background-color: var(--fl-bg-soft) !important;
+  border: 1px dashed var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+}
+
+body#my-account .contact_block .gdpr_consent {
+  margin-top: 8px !important;
+}
+
+body#my-account .contact_block .gdpr_consent label {
+  display: inline !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.5 !important;
+}
+
+body#my-account .contact_block .gdpr_consent input[type="checkbox"] {
   accent-color: var(--fl-red) !important;
   width: 16px !important;
   height: 16px !important;
@@ -339,48 +704,1146 @@ body#my-account input[type="radio"] {
   vertical-align: middle !important;
 }
 
-/* Botones primarios (ENVIAR, GUARDAR, etc.) */
-body#my-account .btn-primary,
-body#my-account button[type="submit"],
-body#my-account input[type="submit"] {
-  display: inline-block !important;
-  padding: 12px 28px !important;
-  font-size: 13px !important;
+body#my-account .contact_block .gdpr_consent a {
+  color: var(--fl-red) !important;
+  text-decoration: underline !important;
   font-weight: 500 !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase !important;
-  color: #fff !important;
-  background: var(--fl-red) !important;
-  border: 0 !important;
-  border-radius: 6px !important;
-  cursor: pointer !important;
-  transition: opacity 0.15s ease, transform 0.05s ease;
-}
-body#my-account .btn-primary:hover,
-body#my-account button[type="submit"]:hover,
-body#my-account input[type="submit"]:hover {
-  opacity: 0.9 !important;
-  color: #fff !important;
-}
-body#my-account .btn-primary:active,
-body#my-account button[type="submit"]:active {
-  transform: translateY(1px);
 }
 
-/* Título del bloque "Contacta con nosotros" */
-body#my-account .page-content h1,
-body#my-account .page-content .h1,
-body#my-account .contact-form h1 {
+body#my-account .contact_block .form-footer {
+  padding: 0 !important;
+  margin-top: 8px !important;
+}
+
+body#my-account .contact_block .form-footer input.btn.btn-primary,
+body#my-account .contact_block input.btn-primary[type="submit"],
+body#my-account .contact_block button.btn-primary[type="submit"],
+body#my-account .contact_block .form-footer .btn-primary {
+  display: inline-block !important;
+  padding: 12px 32px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  background-color: var(--fl-red) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transition: background-color 0.15s ease;
+}
+
+body#my-account .contact_block .form-footer input.btn-primary:hover,
+body#my-account .contact_block .form-footer .btn-primary:hover {
+  background-color: #a50628 !important;
+}
+
+/* =============================================================
+   C. HISTORIAL DE PEDIDOS (body#history)
+   ============================================================= */
+
+/* Contenido — mantener separación con sidebar */
+body#history #content-wrapper {
+  padding-top: 15px !important;
+}
+
+/* Título de página */
+#history h1 {
   font-size: 22px !important;
   font-weight: 500 !important;
-  letter-spacing: -0.01em !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 8px !important;
+}
+
+#history h6 {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: var(--fl-text-muted) !important;
   margin-bottom: 24px !important;
 }
 
-/* --------------------------------------------------------------------------
-   Móvil — burger lateral, tarjetas más compactas
-   -------------------------------------------------------------------------- */
+/* Contenedor de pedidos — columna única, filas full width */
+#history .orders_history,
+body#history .orders_history {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Reset del contenedor viejo .orders que puede meter margen */
+#history .orders {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Cada pedido — una fila con info a la izq y botones a la der */
+#history .order_history,
+#history .orders_history > .order_history,
+body#history .order_history {
+  background: #fff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  border-radius: 0 !important;
+  padding: 14px 20px !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  width: 100% !important;
+  transition: background-color 0.12s ease;
+}
+
+#history .order_history:last-child {
+  border-bottom: none !important;
+}
+
+#history .order_history:hover {
+  background: var(--fl-bg-soft) !important;
+}
+
+/* Info — fila horizontal, ocultar labels */
+#history .order_history .history_info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 24px !important;
+  flex: 1 !important;
+  margin: 0 !important;
+}
+
+#history .order_history .history_info .item {
+  min-width: 0 !important;
+}
+
+#history .order_history .history_info .title {
+  display: none !important;
+}
+
+#history .order_history .history_info .item.item_status {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  width: auto !important;
+}
+
+#history .order_history .history_info .value {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  white-space: nowrap !important;
+}
+
+/* Referencia bold */
+#history .order_history .history_info .item:first-child .value {
+  font-weight: 600 !important;
+}
+
+/* Fecha y precio en gris */
+#history .order_history .history_info .item:nth-child(2) .value,
+#history .order_history .history_info .item:nth-child(3) .value {
+  color: var(--fl-text-muted) !important;
+}
+
+/* Bola de color en estado */
+#history .order_history .history_info .item_status .value::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  background-color: currentColor;
+}
+
+/* Botones — a la derecha */
+#history .order_history .history_buttons {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#history .order_history .history_buttons > a {
+  padding: 7px 14px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-radius: 5px !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  color: var(--fl-text) !important;
+  background: #fff !important;
+  transition: all 0.15s ease;
+  white-space: nowrap !important;
+  width: auto !important;
+}
+
+/* "Detalles" — primario rojo */
+#history .order_history .history_buttons > a:first-child {
+  background-color: var(--fl-red) !important;
+  color: #fff !important;
+  border-color: var(--fl-red) !important;
+}
+
+#history .order_history .history_buttons > a:first-child:hover {
+  background-color: #a50628 !important;
+}
+
+/* "Pedir de nuevo" — secundario */
+#history .order_history .history_buttons > a:nth-child(2):hover {
+  border-color: var(--fl-text-muted) !important;
+}
+
+/* "Reportar incidencia" — link sutil */
+#history .order_history .history_buttons > a:last-child {
+  background: transparent !important;
+  border: none !important;
+  color: var(--fl-text-muted) !important;
+  font-size: 11px !important;
+  text-decoration: underline !important;
+  padding: 7px 4px !important;
+}
+
+#history .order_history .history_buttons > a:last-child:hover {
+  color: var(--fl-red) !important;
+}
+
+/* =============================================================
+   C2. FORMULARIOS — Información personal + Dirección
+       (body#identity, body#address, body#addresses)
+   ============================================================= */
+
+/* Contenedor general de contenido */
+.page-customer-account #content {
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+}
+
+/* --- TÍTULOS: 22px unificado en todas las páginas --- */
+.page-customer-account h1,
+.page-customer-account .page-heading,
+.page-order-detail h1,
+#history h1,
+body#my-account .header_dashboard h1 {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 16px !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* --- Formularios globales Mi Cuenta --- */
+
+/* Contenedor del formulario centrado con ancho máximo */
+.page-customer-account #content .js-customer-form,
+.page-customer-account #content .js-address-form,
+.page-customer-account #content .address-form {
+  max-width: 600px !important;
+}
+
+.page-customer-account .form-group {
+  margin-bottom: 20px !important;
+}
+
+/* Labels (fuera de floating labels) */
+.page-customer-account .form-control-label,
+.page-customer-account label:not(.custom-checkbox label) {
+  display: block !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 6px !important;
+}
+
+/* Inputs, selects, textarea */
+.page-customer-account .form-control,
+.page-customer-account input[type="text"],
+.page-customer-account input[type="email"],
+.page-customer-account input[type="password"],
+.page-customer-account input[type="tel"],
+.page-customer-account input[type="number"],
+.page-customer-account select,
+.page-customer-account textarea {
+  width: 100% !important;
+  padding: 14px 16px !important;
+  font-size: 15px !important;
+  color: var(--fl-text) !important;
+  background-color: #fff !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Focus */
+.page-customer-account .form-control:focus,
+.page-customer-account input:focus,
+.page-customer-account select:focus,
+.page-customer-account textarea:focus {
+  outline: none !important;
+  border-color: var(--fl-red) !important;
+  box-shadow: 0 0 0 3px var(--fl-red-soft) !important;
+}
+
+/* Floating labels — proporción corregida */
+.page-customer-account .js-input-column label,
+.page-customer-account .inp label,
+.page-customer-account .form-group .col-md-6 label {
+  font-size: 11px !important;
+  color: var(--fl-text-muted) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Labels de campo (Nombre, Apellidos, etc.) en identity — más grandes */
+body#identity .form-group .label,
+body#identity #customer-form .form-group span.label,
+body#identity #customer-form .sub-form-group .label {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+/* Valor del input — proporcionado con el label */
+.page-customer-account #customer-form .form-control,
+.page-customer-account #customer-form input,
+body#identity .form-control,
+body#identity input[type="text"],
+body#identity input[type="email"],
+body#identity input[type="password"],
+body#address .form-control,
+body#address input,
+body#address select {
+  font-size: 14px !important;
+  padding: 12px 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* Campo de contraseña con fondo azulado — normalizar */
+body#identity input[type="password"] {
+  background-color: #fff !important;
+}
+
+/* Barra de fortaleza de contraseña */
+.page-customer-account .field-password-policy .progress-bar {
+  border-radius: 4px !important;
+}
+
+.page-customer-account .field-password-policy .password-strength-text,
+.page-customer-account .field-password-policy p {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* Texto de ayuda bajo los campos */
+.page-customer-account .form-informations,
+.page-customer-account .help-block,
+.page-customer-account small {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+  margin-top: 4px !important;
+}
+
+/* Info icons (ⓘ) al lado de los campos */
+.page-customer-account .form-group .input-group-btn .btn,
+.page-customer-account .js-input-column .btn-tooltip {
+  color: var(--fl-text-muted) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Select con flecha custom */
+.page-customer-account select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%236c757d' d='M6 8L1 3h10z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-size: 10px !important;
+  padding-right: 36px !important;
+}
+
+/* Checkboxes y radios */
+.page-customer-account input[type="checkbox"],
+.page-customer-account input[type="radio"] {
+  accent-color: var(--fl-red) !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+}
+
+/* Botones primarios — ENVIAR / GUARDAR */
+.page-customer-account .btn-primary,
+.page-customer-account .form-control-submit,
+.page-customer-account button[type="submit"],
+.page-customer-account input[type="submit"] {
+  display: inline-block !important;
+  padding: 12px 28px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  background-color: var(--fl-red) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease;
+}
+
+.page-customer-account .btn-primary:hover,
+.page-customer-account .form-control-submit:hover,
+.page-customer-account button[type="submit"]:hover {
+  background-color: #a50628 !important;
+  color: #fff !important;
+}
+
+/* Footer de formulario */
+.page-customer-account .form-footer {
+  margin-top: 20px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--fl-border) !important;
+}
+
+/* Campo de política de password */
+.page-customer-account .field-password-policy {
+  margin-bottom: 16px !important;
+}
+
+/* =============================================================
+   C3. DIRECCIONES (body#addresses)
+   ============================================================= */
+
+/* Cards de dirección */
+.page-addresses .address {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  margin-bottom: 16px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+.page-addresses .address .address-body {
+  padding: 20px !important;
+}
+
+.page-addresses .address .address-body h4 {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+  margin-bottom: 8px !important;
+}
+
+.page-addresses .address .address-body address {
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.6 !important;
+  min-height: auto !important;
+}
+
+.page-addresses .address .address-footer {
+  padding: 12px 20px !important;
+  border-top: 1px solid var(--fl-border) !important;
+  display: flex !important;
+  gap: 16px !important;
+}
+
+.page-addresses .address .address-footer a {
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+.page-addresses .address .address-footer a:hover {
+  color: var(--fl-red) !important;
+}
+
+.page-addresses .address .address-footer a i {
+  font-size: 14px !important;
+  vertical-align: middle;
+  margin-right: 4px !important;
+}
+
+/* Link "Añadir dirección" */
+.page-addresses .addresses-footer a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+}
+
+.page-addresses .addresses-footer a:hover {
+  text-decoration: underline !important;
+}
+
+/* =============================================================
+   C4. TABLAS — Cupones, Facturas por abono
+       (body#discount, body#order-slip)
+   ============================================================= */
+
+/* Tabla desktop */
+.page-customer-account table.table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: none !important;
+  background: #fff !important;
+  border-radius: var(--fl-radius) !important;
+  overflow: hidden;
+}
+
+.page-customer-account table.table thead th {
+  background: var(--fl-bg-soft) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  text-align: left !important;
+}
+
+.page-customer-account table.table tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  vertical-align: middle !important;
+  background: transparent !important;
+}
+
+.page-customer-account table.table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.page-customer-account table.table tbody tr:hover td {
+  background: var(--fl-bg-soft) !important;
+}
+
+/* Quitar bordes de table-striped y table-bordered */
+.page-customer-account table.table-striped tbody tr:nth-of-type(odd) {
+  background: transparent !important;
+}
+
+.page-customer-account table.table-bordered {
+  border: 1px solid var(--fl-border) !important;
+}
+
+/* Mobile list cards (cupones, facturas) */
+.page-customer-account .cart-rule,
+.page-customer-account .credit-slip {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+}
+
+.page-customer-account .cart-rule ul,
+.page-customer-account .credit-slip ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.page-customer-account .cart-rule li,
+.page-customer-account .credit-slip li {
+  padding: 4px 0 !important;
+  font-size: 13px !important;
+  color: var(--fl-text) !important;
+}
+
+/* Empty state (alertas) — especificidad reforzada */
+.page-customer-account .alert-info,
+.page-customer-account .alert.alert-info,
+.dashboard_account .alert-info,
+body .page-customer-account .alert-info,
+.page-customer-account .default_message_no,
+.dashboard_account .default_message_no {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+  border: 1px dashed var(--fl-border-hard, #D9D9D9) !important;
+  border-radius: 6px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  font-size: 14px !important;
+  text-align: center !important;
+  padding: 24px 18px !important;
+}
+
+/* Links de descarga / acción en tablas */
+.page-customer-account table.table a {
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.page-customer-account table.table a:hover {
+  text-decoration: underline !important;
+}
+
+/* Label / badge de estado */
+.page-customer-account .label,
+.page-customer-account .badge {
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* =============================================================
+   C5. DETALLE DE PEDIDO (body#order-detail)
+   ============================================================= */
+
+/* --- Barra info superior: fecha · referencia · estado --- */
+#order-detail .order_info {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 14px 20px !important;
+  margin-bottom: 20px !important;
+  background: var(--fl-bg-soft) !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail .order_info strong {
+  color: var(--fl-text) !important;
+}
+
+#order-detail .order_info .state {
+  float: none !important;
+  margin-left: auto;
+  font-weight: 500 !important;
+}
+
+#order-detail .order_info .state .value::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  background-color: currentColor;
+}
+
+/* --- Bloque resumen (direcciones + pago + totales) --- */
+#order-detail .order_resume .box {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+  box-shadow: none !important;
+}
+
+/* Títulos de sección dentro del resumen */
+#order-detail .order_resume .title,
+#order-detail .order_summary .title {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 10px !important;
+  display: block !important;
+}
+
+/* Acordeón de direcciones */
+#order-detail .order_resume .btn-link {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+  text-decoration: none !important;
+  padding: 8px 0 !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+}
+
+#order-detail .order_resume .btn-link:focus,
+#order-detail .order_resume .btn-link:hover {
+  text-decoration: none !important;
+  color: var(--fl-red) !important;
+}
+
+#order-detail .order_resume .btn-link i {
+  font-size: 18px !important;
+  float: right;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail .order_resume .card-body {
+  padding: 12px 0 !important;
+}
+
+#order-detail .order_resume .card-body address {
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  line-height: 1.6 !important;
+  font-style: normal !important;
+}
+
+/* Items de info (método pago, transportista) */
+#order-detail .order_resume .item {
+  margin-bottom: 12px !important;
+  padding-bottom: 0 !important;
+}
+
+#order-detail .order_resume .item .title {
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 2px !important;
+}
+
+#order-detail .order_resume .item > span:not(.title) {
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+}
+
+/* Resumen de precios */
+#order-detail .order_summary .line-subtotal {
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 4px 0 !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail .order_summary .line-subtotal .value {
+  float: none !important;
+  font-weight: 500 !important;
+  color: var(--fl-text) !important;
+}
+
+#order-detail .order_summary .line-total {
+  display: flex !important;
+  justify-content: space-between !important;
+  border-top: 1px solid var(--fl-border) !important;
+  margin-top: 8px !important;
+  padding-top: 10px !important;
+}
+
+#order-detail .order_summary .line-total span {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+/* --- Acciones (Reordenar, Reportar, Devolver, Factura) --- */
+#order-detail .order_actions {
+  margin-bottom: 24px !important;
+}
+
+#order-detail .order_actions .oactions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+#order-detail .order_actions .oactions .oaction {
+  flex: 1 !important;
+  max-width: none !important;
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  color: var(--fl-text) !important;
+  background: #fff !important;
+  border: 1px solid var(--fl-border-hard) !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease;
+}
+
+#order-detail .order_actions .oactions .oaction:first-child {
+  border-color: var(--fl-border-hard) !important;
+  border-left: 1px solid var(--fl-border-hard) !important;
+}
+
+#order-detail .order_actions .oactions .oaction:hover {
+  background: var(--fl-bg-soft) !important;
+  border-color: var(--fl-red) !important;
+  color: var(--fl-red) !important;
+  text-decoration: none !important;
+}
+
+/* --- Tabla de productos (desktop) --- */
+.page-order-detail .box {
+  background: #fff !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+  overflow: hidden;
+}
+
+#order-detail #order-products {
+  border: none !important;
+  margin: 0 !important;
+}
+
+#order-detail #order-products thead th {
+  background: var(--fl-bg-soft) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+}
+
+#order-detail #order-products tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  color: var(--fl-text) !important;
+  vertical-align: middle !important;
+}
+
+#order-detail #order-products tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+#order-detail #order-products tbody td a {
+  color: var(--fl-text) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+}
+
+#order-detail #order-products tbody td a:hover {
+  color: var(--fl-red) !important;
+}
+
+#order-detail #order-products tfoot td {
+  border: none !important;
+  border-top: 1px solid var(--fl-border) !important;
+  padding: 10px 16px !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted) !important;
+  background: var(--fl-bg-soft) !important;
+}
+
+/* --- Productos (móvil) --- */
+.page-order-detail .order-items {
+  padding: 0 !important;
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  overflow: hidden;
+}
+
+.page-order-detail .order-items .order-item {
+  padding: 14px 16px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+}
+
+.page-order-detail .order-items .order-item:last-child {
+  border-bottom: none !important;
+}
+
+.page-order-detail .order-items .order-item .name {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text) !important;
+}
+
+.page-order-detail .order-items .order-item .ref {
+  font-size: 12px !important;
+  color: var(--fl-text-muted) !important;
+}
+
+/* Totales móvil */
+.page-order-detail .order-totals {
+  border: 1px solid var(--fl-border) !important;
+  border-radius: var(--fl-radius) !important;
+  padding: 12px 16px !important;
+  background: var(--fl-bg-soft) !important;
+}
+
+/* --- Mensajes del pedido --- */
+.page-order-detail h3 {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted) !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+}
+
+.page-order-detail .messages .message {
+  padding: 12px 0 !important;
+  border-bottom: 1px solid var(--fl-border) !important;
+  font-size: 13px !important;
+  color: var(--fl-text) !important;
+}
+
+.page-order-detail .messages .message:last-child {
+  border-bottom: none !important;
+}
+
+/* =============================================================
+   C6. PRODUCTOS COMPRADOS (ecommproductshistory)
+   ============================================================= */
+
+/* Contenedor */
+.ecommproductshistory {
+  font-size: 14px !important;
+}
+
+.ecommproductshistory .page-header h1 {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  margin-bottom: 20px !important;
+}
+
+/* Contenedor con borde */
+.ecommproductshistory #products-content {
+  border: 1px solid var(--fl-border, #ECECEC) !important;
+  border-radius: var(--fl-radius, 8px) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+
+/* Cada producto — fila con grid 3 zonas */
+.ecommproductshistory #products-content .row.product {
+  display: grid !important;
+  grid-template-columns: 70px 1fr auto !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 14px 20px !important;
+  border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
+  margin: 0 !important;
+  transition: background-color 0.12s ease;
+}
+
+.ecommproductshistory #products-content .row.product:last-of-type {
+  border-bottom: none !important;
+}
+
+.ecommproductshistory #products-content .row.product:hover {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+}
+
+/* Columnas — reset bootstrap */
+.ecommproductshistory .img-container,
+.ecommproductshistory .prop-container,
+.ecommproductshistory .add-container {
+  width: auto !important;
+  max-width: none !important;
+  flex: none !important;
+  padding: 0 !important;
+}
+
+/* Imagen */
+.ecommproductshistory .img-container img {
+  width: 56px !important;
+  height: 56px !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--fl-border, #ECECEC) !important;
+}
+
+/* Info del producto */
+.ecommproductshistory .prop-container .prop-name {
+  margin-bottom: 2px !important;
+}
+
+.ecommproductshistory .prop-container .prop-name a {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  text-decoration: none !important;
+}
+
+.ecommproductshistory .prop-container .prop-name a:hover {
+  color: var(--fl-red, #C40731) !important;
+}
+
+.ecommproductshistory .prop-container .prop-qty {
+  font-size: 12px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  margin: 0 !important;
+}
+
+/* Zona derecha — precio + cantidad + botón en línea */
+.ecommproductshistory .add-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.ecommproductshistory .add-container form {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.ecommproductshistory .add-container p {
+  margin: 0 !important;
+  min-width: 60px !important;
+}
+
+.ecommproductshistory .add-container p strong {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+}
+
+/* Botones qty y añadir — heredar estilos originales del theme */
+
+/* Paginación */
+.ecommproductshistory #products-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  padding: 20px 0 !important;
+  font-size: 13px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+}
+
+.ecommproductshistory #products-pagination a {
+  color: var(--fl-red, #C40731) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.ecommproductshistory #products-pagination a.disabled {
+  color: var(--fl-border-hard, #D9D9D9) !important;
+  pointer-events: none !important;
+}
+
+/* =============================================================
+   C7. CARRITOS GUARDADOS (awsavecart)
+   ============================================================= */
+
+/* Título */
+#content .page-heading,
+body[id*="savedcart"] h1,
+body[id*="savedcart"] .page-heading {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  margin-bottom: 8px !important;
+}
+
+/* Subtítulo info */
+body[id*="savedcart"] .info-title,
+#content .info-title {
+  font-size: 14px !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+  margin-bottom: 20px !important;
+}
+
+/* Tabla de carritos */
+#saved-carts,
+table.footab {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid var(--fl-border, #ECECEC) !important;
+  border-radius: var(--fl-radius, 8px) !important;
+  overflow: hidden !important;
+}
+
+#saved-carts thead th,
+table.footab thead th {
+  background: var(--fl-bg-soft, #FAFAFA) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
+  padding: 10px 16px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--fl-text-muted, #6C757D) !important;
+}
+
+#saved-carts tbody td,
+table.footab tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--fl-border, #ECECEC) !important;
+  padding: 14px 16px !important;
+  font-size: 14px !important;
+  color: var(--fl-text, #2D2D2D) !important;
+  vertical-align: middle !important;
+}
+
+#saved-carts tbody tr:last-child td,
+table.footab tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Botones CARGAR / BORRAR */
+#saved-carts .btn,
+table.footab .btn {
+  padding: 8px 16px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+/* =============================================================
+   D. RESPONSIVE
+   ============================================================= */
 @media (max-width: 991px) {
+  /* Sidebar */
+  .sidebarmyaccount {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navigation_account .item {
+    padding: 14px 20px !important;
+    font-size: 15px !important;
+  }
+
+  /* Dashboard cards */
   body#my-account .standard_card {
     padding: 18px !important;
     margin-bottom: 16px !important;
@@ -397,31 +1860,151 @@ body#my-account .contact-form h1 {
     padding-bottom: 10px !important;
   }
 
-  body#my-account .navigation_account .item {
-    padding: 14px 20px !important;
-    font-size: 15px !important;
-  }
-
-  body#my-account .form-control,
-  body#my-account input,
-  body#my-account select,
-  body#my-account textarea {
+  /* Formularios — evita zoom iOS */
+  .page-customer-account .form-control,
+  .page-customer-account input,
+  .page-customer-account select,
+  .page-customer-account textarea {
     font-size: 16px !important;
   }
 
-  body#my-account .last_orders tbody tr {
-    display: block !important;
-    border: 1px solid var(--fl-border) !important;
-    border-radius: 6px !important;
-    padding: 14px !important;
-    margin-bottom: 12px !important;
+  /* Dashboard pedidos en vertical */
+  body#my-account .last_orders .order_info {
+    flex-direction: column !important;
+    gap: 8px;
+    padding: 14px 18px !important;
   }
-  body#my-account .last_orders tbody td {
-    display: block !important;
-    border: 0 !important;
-    padding: 4px 0 !important;
+
+  body#my-account .last_orders .order_header {
+    display: none !important;
   }
-  body#my-account .last_orders tbody tr:hover td {
-    background: transparent !important;
+
+  body#my-account .last_orders .order_info > span:nth-child(2) {
+    max-height: none !important;
+  }
+
+  body#my-account .last_orders .order_info > span .label_mobile {
+    display: inline !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--fl-text-muted) !important;
+    margin-right: 6px !important;
+  }
+
+  body#my-account .last_orders a.all_orders {
+    position: static !important;
+    display: block !important;
+    padding: 14px 18px !important;
+    text-align: center !important;
+    border-top: 1px solid var(--fl-border) !important;
+  }
+
+  /* Historial — cards verticales en tablet/mobile */
+  #history .order_history,
+  #history .orders_history > .order_history {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px 16px !important;
+    padding: 16px !important;
+  }
+
+  #history .order_history .history_info {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px 16px !important;
+    width: 100% !important;
+  }
+
+  #history .order_history .history_info .item {
+    flex: 0 0 calc(50% - 8px) !important;
+  }
+
+  #history .order_history .history_info .title {
+    display: block !important;
+    font-size: 9px !important;
+  }
+
+  #history .order_history .history_buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+    padding-top: 8px !important;
+    border-top: 1px solid var(--fl-border) !important;
+  }
+
+  #history .order_history .history_buttons > a {
+    padding: 7px 10px !important;
+    font-size: 11px !important;
+  }
+
+  /* Productos comprados — stack vertical */
+  .ecommproductshistory .add-container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  /* Detalle pedido — acciones en columna */
+  #order-detail .order_actions .oactions {
+    flex-direction: column !important;
+  }
+
+  #order-detail .order_actions .oactions .oaction {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  #order-detail .order_info {
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  #order-detail .order_info .state {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  #history .order_history {
+    padding: 16px !important;
+  }
+
+  #history .order_history .history_info .value {
+    font-size: 13px !important;
+  }
+
+  #history h1 {
+    font-size: 18px !important;
+  }
+
+  /* Productos comprados — stack vertical en mobile */
+  .ecommproductshistory #products-content .row.product {
+    grid-template-columns: 50px 1fr !important;
+    grid-template-rows: auto auto !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .ecommproductshistory .add-container {
+    grid-column: 1 / -1 !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .ecommproductshistory .add-container form {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .ecommproductshistory .img-container img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .ecommproductshistory .prop-container .prop-name a {
+    font-size: 12px !important;
   }
 }
